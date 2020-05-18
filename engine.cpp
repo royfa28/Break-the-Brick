@@ -70,9 +70,9 @@ void Engine::render(Uint32) {
 				}
 
 				const Uint8 red = 0;
-				const Uint8 green = 255;
-				const Uint8 blue = 255;
-				const Uint8 alpha = 120;
+				const Uint8 green = 0;
+				const Uint8 blue = 0;
+				const Uint8 alpha = 255;
 				const int render_color_success = 0;
 				const int render_color_result = SDL_SetRenderDrawColor(_renderer, red, green, blue, alpha);
 				if (render_color_result != render_color_success)
