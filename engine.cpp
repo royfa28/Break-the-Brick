@@ -8,6 +8,7 @@
 
 Engine::Engine() {
 
+				// Initialize SDL
 				const int init_result = SDL_Init(SDL_INIT_EVERYTHING);
 				const int init_result_success = 0;
 				if (init_result != init_result_success)
@@ -17,12 +18,14 @@ Engine::Engine() {
 								exit(1);
 				}
 
+				// Size of the window
 				const char* game_title = "Break the Brick";
 				const int x = 100;
 				const int y = 100;
 				const int width = 600;
 				const int height = 600;
 
+				// Caption of the window
 				_window = SDL_CreateWindow(game_title, x, y, width, height, SDL_WINDOW_RESIZABLE);
 				if (_window == nullptr)
 				{

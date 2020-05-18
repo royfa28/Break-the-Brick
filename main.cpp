@@ -14,8 +14,28 @@ int main(void)
 
 				Uint32 frame_start_time_ms = 0;
 				Uint32 frame_end_time_ms = frame_time_ms;
-				while (true)
+
+				bool isRunning = true;
+
+				// For handling with event
+				SDL_Event event;
+
+				while ( isRunning )
 				{
+								while (SDL_PollEvent(&event)) {
+												
+												// Close the game if X is pressed
+												if (event.type == SDL_QUIT) {
+																isRunning = false;
+												}
+
+												/*
+												if (event.type == SDL_KEYUP && event.key.keysym.sym == SDLK_ESCAPE) {
+																isRunning = false;
+												}
+												*/
+								}
+
 								Uint32 previous_frame_duration = frame_end_time_ms - frame_start_time_ms;
 								frame_start_time_ms = SDL_GetTicks();
 
