@@ -7,6 +7,7 @@
 int main(void)
 {
 				Engine* engine = new Engine();
+				Assets* assets = new Assets(engine->renderer());
 
 				const Uint32 milliseconds_per_seconds = 1000;
 				const Uint32 frames_per_second = 60;
@@ -39,7 +40,7 @@ int main(void)
 								Uint32 previous_frame_duration = frame_end_time_ms - frame_start_time_ms;
 								frame_start_time_ms = SDL_GetTicks();
 
-								engine->simulate(previous_frame_duration);
+								engine->simulate(previous_frame_duration, assets);
 
 								const Uint32 current_time_ms = SDL_GetTicks();
 								const Uint32 frame_duration_ms = current_time_ms - frame_start_time_ms;

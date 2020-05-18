@@ -5,6 +5,10 @@
 
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
+#include <SDL_image.h>
+
+
+#include "texture.h"
 
 Engine::Engine() {
 
@@ -43,25 +47,35 @@ Engine::Engine() {
 								exit(1);
 				}
 
+				const int image_init_result = IMG_Init(IMG_INIT_PNG);
+				const int image_init_success = IMG_INIT_PNG;
+				if (image_init_result != image_init_success)
+				{
+								std::cout << "Failed to initialize SDL Image" << std::endl;
+								std::cout << "SDL Error: " << SDL_GetError() << std::endl;
+								exit(1);
+				}
 }
 
 Engine::~Engine() {
 
 }
 
-void Engine::simulate(Uint32 milliseconds_to_simulate) {
-				render(milliseconds_to_simulate);
+void Engine::simulate(Uint32 milliseconds_to_simulate, Assets* assets) {
+				simulate_AI(milliseconds_to_simulate, assets);
+				simulate_physics(milliseconds_to_simulate, assets);
+				render(milliseconds_to_simulate, assets);
 }
 
-void Engine::simulate_AI(Uint32) {
+void Engine::simulate_AI(Uint32, Assets*) {
 				
 }
 
-void Engine::simulate_physics(Uint32) {
+void Engine::simulate_physics(Uint32, Assets*) {
 				
 }
 
-void Engine::render(Uint32) {
+void Engine::render(Uint32, Assets*) {
 
 				const int render_clear_success = 0;
 				const int render_clear_result = SDL_RenderClear(_renderer);
@@ -84,6 +98,18 @@ void Engine::render(Uint32) {
 								std::cout << "SDL Error: " << SDL_GetError() << std::endl;
 								exit(1);
 				}
+				/*
+								{
+								Texture* paddle = assets->get_texture("Texture.paddle_normal");
+								SDL_Rect destination;
+								destination.x = 50;
+								destination.y = 50;
+								destination.w = 100;
+								destination.h = 100;
+								paddle->render(_renderer, nullptr, &destination, SDL_FLIP_NONE);
+				}
+				*/
+
 
 				SDL_RenderPresent(_renderer);
 }
