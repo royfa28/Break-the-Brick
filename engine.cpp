@@ -5,7 +5,6 @@
 
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
-#include <SDL_image.h>
 
 
 #include "texture.h"
@@ -75,7 +74,7 @@ void Engine::simulate_physics(Uint32, Assets*) {
 				
 }
 
-void Engine::render(Uint32, Assets*) {
+void Engine::render(Uint32, Assets* assets) {
 
 				const int render_clear_success = 0;
 				const int render_clear_result = SDL_RenderClear(_renderer);
@@ -98,7 +97,7 @@ void Engine::render(Uint32, Assets*) {
 								std::cout << "SDL Error: " << SDL_GetError() << std::endl;
 								exit(1);
 				}
-				/*
+				
 								{
 								Texture* paddle = assets->get_texture("Texture.paddle_normal");
 								SDL_Rect destination;
@@ -108,7 +107,7 @@ void Engine::render(Uint32, Assets*) {
 								destination.h = 100;
 								paddle->render(_renderer, nullptr, &destination, SDL_FLIP_NONE);
 				}
-				*/
+				
 
 
 				SDL_RenderPresent(_renderer);
