@@ -3,12 +3,14 @@
 #include <thread>
 
 #include "engine.h"
+#include "game_scene.h"
 #include "input.h"
 
 int main(void)
 {
 				Engine* engine = new Engine();
 				Assets* assets = new Assets(engine->renderer());
+				Scene* game_scene = new Game_Scene();
 				Input* input = new Input();
 
 				const Uint32 milliseconds_per_seconds = 1000;
@@ -43,11 +45,10 @@ int main(void)
 								frame_start_time_ms = SDL_GetTicks();
 
 								input->get_input();
-								engine->simulate(previous_frame_duration, assets);
+								engine->simulate(previous_frame_duration, assets, game_scene, input);
 
-								if (input->is_button_state(Input::Button::UP, Input::Button_State::PRESSED)) {
-												std::cout << "Up press" << std::endl;
-								}
+								// I'm guessing I need an update function here to refresh the screen?
+
 
 								const Uint32 current_time_ms = SDL_GetTicks();
 								const Uint32 frame_duration_ms = current_time_ms - frame_start_time_ms;

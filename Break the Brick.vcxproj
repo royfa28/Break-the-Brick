@@ -103,7 +103,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <AdditionalIncludeDirectories>E:\AIT\Basic Game Engine Programming\Break the Brick\Dependecies\SDL2_2015\include;E:\AIT\Basic Game Engine Programming\Break the Brick\Dependecies\SDL2_image-2.0.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -137,7 +137,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <AdditionalIncludeDirectories>E:\AIT\Basic Game Engine Programming\Break the Brick\Dependecies\SDL2_2015\include;E:\AIT\Basic Game Engine Programming\Break the Brick\Dependecies\SDL2_image-2.0.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -150,23 +150,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="animated_texture.cpp" />
     <ClCompile Include="asset.cpp" />
     <ClCompile Include="assets.cpp" />
+    <ClCompile Include="dino.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="game_object.cpp" />
+    <ClCompile Include="game_scene.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="paddle.cpp" />
+    <ClCompile Include="scene.cpp" />
     <ClCompile Include="texture.cpp" />
     <ClCompile Include="vector_2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="animated_texture.h" />
     <ClInclude Include="asset.h" />
     <ClInclude Include="assets.h" />
+    <ClInclude Include="dino.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="game_object.h" />
+    <ClInclude Include="game_scene.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="paddle.h" />
+    <ClInclude Include="scene.h" />
     <ClInclude Include="texture.h" />
     <ClInclude Include="vector_2D.h" />
   </ItemGroup>

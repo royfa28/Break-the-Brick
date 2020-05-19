@@ -42,6 +42,18 @@
     <ClCompile Include="vector_2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game_scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dino.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="animated_texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine.h">
@@ -66,6 +78,18 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="vector_2D.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scene.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game_scene.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dino.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="animated_texture.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

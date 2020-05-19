@@ -5,6 +5,8 @@
 #include <SDL_image.h>
 
 #include "assets.h"
+#include "scene.h"
+#include "input.h"
 
 class Engine
 {
@@ -14,14 +16,14 @@ public:
 
 				void simulate(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scene, Input* input);
 
-				SDL_Renderer* renderer();
-				SDL_Window* window();
+				SDL_Renderer*			renderer();
+				SDL_Window*					window();
 
 private:
-				void simulate_AI(Uint32 milliseconds_to_simulate, Assets* assets);
-				void simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets);
-				void render(Uint32 milliseconds_to_simulate, Assets* assets);
+				void simulate_AI(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scene, Input* input);
+				void simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scene);
+				void render(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scene);
 
-				SDL_Window* _window;
-				SDL_Renderer* _renderer;
+				SDL_Window*					_window;
+				SDL_Renderer*			_renderer;
 };

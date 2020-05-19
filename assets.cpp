@@ -1,4 +1,5 @@
 #include "assets.h"
+#include "animated_texture.h"
 
 #include <iostream>
 
@@ -10,8 +11,20 @@ Assets::Assets(SDL_Renderer* renderer) {
 								_assets[texture->id()] = texture;
 				}
 
-				const int frame_count = 10;
-				const Uint32 frame_duration_milliseconds = 100;
+				// Create player walking texture.
+				{
+								const int frame_count = 10;
+								const Uint32 frame_duration_milliseconds = 100;
+								Asset* paddle_texture = new Animated_Texture("Texture.paddle.move", "Assets/paddle_normal.png", 
+												renderer, frame_count, frame_duration_milliseconds);
+								_assets[paddle_texture->id()] = paddle_texture;
+				}
+
+				// Cache Dino Texture.
+				{
+								Texture* texture = new Texture("Texture.Dino", "Assets/dino.png", renderer);
+								_assets[texture->id()] = texture;
+				}
 }
 
 Assets::~Assets() {

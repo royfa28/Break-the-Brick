@@ -3,6 +3,7 @@
 #include <map>
 
 #include "texture.h"
+#include "animated_texture.h"
 
 
 class Assets {

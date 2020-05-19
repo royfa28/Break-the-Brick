@@ -62,21 +62,29 @@ Engine::~Engine() {
 
 }
 
-void Engine::simulate(Uint32 milliseconds_to_simulate, Assets* assets) {
-				simulate_AI(milliseconds_to_simulate, assets);
-				simulate_physics(milliseconds_to_simulate, assets);
-				render(milliseconds_to_simulate, assets);
+void Engine::simulate(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scene, Input* input) {
+				simulate_AI(milliseconds_to_simulate, assets, scene, input);
+				simulate_physics(milliseconds_to_simulate, assets, scene);
+				render(milliseconds_to_simulate, assets, scene);
 }
 
-void Engine::simulate_AI(Uint32, Assets*) {
-				
+void Engine::simulate_AI(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scene, Input* input) {
+				std::vector<Game_Object*> game_objects = scene->get_game_objects();
+				for (Game_Object* game_object : game_objects)
+				{
+								game_object->simulate_AI(milliseconds_to_simulate, assets, input);
+				}
 }
 
-void Engine::simulate_physics(Uint32, Assets*) {
-				
+void Engine::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scene) {
+				std::vector<Game_Object*> game_objects = scene->get_game_objects();
+				for (Game_Object* game_object : game_objects)
+				{
+								game_object->simulate_physics(milliseconds_to_simulate, assets);
+				}
 }
 
-void Engine::render(Uint32 miliseconds_to_simulate, Assets* assets) {
+void Engine::render(Uint32 miliseconds_to_simulate, Assets* assets, Scene* scene) {
 
 				const int render_clear_success = 0;
 				const int render_clear_result = SDL_RenderClear(_renderer);
@@ -100,20 +108,11 @@ void Engine::render(Uint32 miliseconds_to_simulate, Assets* assets) {
 								exit(1);
 				}
 				
+				std::vector<Game_Object*> game_objects = scene->get_game_objects();
+				for (Game_Object* game_object : game_objects)
 				{
-								Paddle* paddle = new Paddle("paddle");
-								paddle->render(miliseconds_to_simulate, assets, _renderer);
+								game_object->render(miliseconds_to_simulate, assets, _renderer);
 				}
-
-				/*{
-								Texture* paddle = (Texture*)assets->get_asset("Texture.paddle");
-								SDL_Rect destination;
-								destination.x = 400;
-								destination.y = 1170;
-								destination.w = 100;
-								destination.h = 15;
-								paddle->render(_renderer, nullptr, &destination, SDL_FLIP_NONE);
-				}*/
 				
 				SDL_RenderPresent(_renderer);
 }

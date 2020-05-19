@@ -14,12 +14,14 @@ Paddle::~Paddle() {
 
 }
 
-//void Paddle::render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer) {
-//				Texture* texture = (Texture*)assets->get_asset(_texture_id);
-//				texture->update_frame(milliseconds_to_simulate);
-//
-//				Game_Object::render(milliseconds_to_simulate, assets, renderer);
-//}
+void Paddle::render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer)
+{
+				Animated_Texture* texture = (Animated_Texture*)assets->get_asset(_texture_id);
+				texture->update_frame(milliseconds_to_simulate);
+
+				Game_Object::render(milliseconds_to_simulate, assets, renderer);
+}
+
 
 void Paddle::simulate_AI(Uint32, Assets*, Input* input)
 {
@@ -33,16 +35,6 @@ void Paddle::simulate_AI(Uint32, Assets*, Input* input)
 				if (input->is_button_state(Input::Button::LEFT, Input::Button_State::DOWN))
 				{
 								_velocity += Vector_2D(-1.0f, 0);
-				}
-
-				if (input->is_button_state(Input::Button::UP, Input::Button_State::DOWN))
-				{
-								_velocity += Vector_2D(0, -1.0f);
-				}
-
-				if (input->is_button_state(Input::Button::DOWN, Input::Button_State::DOWN))
-				{
-								_velocity += Vector_2D(0, 1.0f);
 				}
 
 				_velocity.normalize();
