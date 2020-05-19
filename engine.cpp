@@ -25,11 +25,11 @@ Engine::Engine() {
 				const char* game_title = "Break the Brick";
 				const int x = 100;
 				const int y = 100;
-				const int width = 600;
-				const int height = 600;
+				const int width = 900;
+				const int height = 1200;
 
 				// Caption of the window
-				_window = SDL_CreateWindow(game_title, x, y, width, height, SDL_WINDOW_RESIZABLE);
+				_window = SDL_CreateWindow(game_title, x, y, width, height, 0);
 				if (_window == nullptr)
 				{
 								std::cout << "Failed to create SDL window" << std::endl;
@@ -98,13 +98,13 @@ void Engine::render(Uint32, Assets* assets) {
 								exit(1);
 				}
 				
-								{
+				{
 								Texture* paddle = assets->get_texture("Texture.paddle_normal");
 								SDL_Rect destination;
-								destination.x = 50;
-								destination.y = 50;
+								destination.x = 400;
+								destination.y = 1170;
 								destination.w = 100;
-								destination.h = 100;
+								destination.h = 15;
 								paddle->render(_renderer, nullptr, &destination, SDL_FLIP_NONE);
 				}
 				
