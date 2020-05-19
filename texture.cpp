@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-Texture::Texture(std::string path, SDL_Renderer* renderer)
+Texture::Texture(std::string id, std::string path, SDL_Renderer* renderer) : Asset(id)
 {
 				SDL_Surface* surface = nullptr;
 				if (path.find("bmp") != std::string::npos)

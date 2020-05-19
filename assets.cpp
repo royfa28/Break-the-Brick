@@ -2,29 +2,30 @@
 
 #include <iostream>
 
-Assets::Assets(SDL_Renderer* renderer)
-{
-				Texture* dino_texture = new Texture("Assets/paddle_normal.png", renderer);
-				_textures["Texture.paddle_normal"] = dino_texture;
+Assets::Assets(SDL_Renderer* renderer) {
+
+				// Cache the paddle
+				{
+								Texture* texture = new Texture("Texture.paddle", "Assets/paddle_normal.png", renderer);
+								_assets[texture->id()] = texture;
+				}
 
 				const int frame_count = 10;
 				const Uint32 frame_duration_milliseconds = 100;
 }
 
-Assets::~Assets()
-{
+Assets::~Assets() {
 
 }
 
-Texture* Assets::get_texture(std::string id)
-{
-				if (_textures.find(id) == _textures.end())
+Asset* Assets::get_asset(std::string id) {
+				if (_assets.find(id) == _assets.end())
 				{
 								std::cout << "Attempted to find a texture that was not loaded. ID: " << id << std::endl;
 								exit(1);
 				}
 
-				return _textures[id];
+				return _assets[id];
 }
 
 /*

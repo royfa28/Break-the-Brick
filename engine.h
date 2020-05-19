@@ -12,7 +12,7 @@ public:
 				Engine();
 				~Engine();
 
-				void simulate(Uint32 milliseconds_to_simulate, Assets* assets);
+				void simulate(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scene, Input* input);
 
 				SDL_Renderer* renderer();
 				SDL_Window* window();

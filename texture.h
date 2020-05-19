@@ -5,11 +5,11 @@
 #include <SDL.h>
 
 #include <string>
+#include "asset.h"
 
-class Texture
-{
+class Texture: public Asset {
 public:
-				Texture(std::string path, SDL_Renderer* renderer);
+				Texture(std::string id, std::string path, SDL_Renderer* renderer);
 				~Texture();
 
 				SDL_Texture* data();

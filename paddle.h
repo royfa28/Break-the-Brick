@@ -1,13 +1,17 @@
 #pragma once
 
-#define SDL_MAIN_HANDLED
-#include <SDL.h>
+#include "game_object.h"
 
-#include <string>
-
-class Paddle {
+class Paddle : public Game_Object {
 
 public:
+
+    Paddle(std::string id);
+    ~Paddle();
+
+    virtual void simulate_AI(Uint32 milliseconds_to_simulate, Assets* assets, Input* input) override;
+    //virtual void render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer) override;
+
     float x, y, width, height;
 
     void shrink();

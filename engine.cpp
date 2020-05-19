@@ -7,7 +7,9 @@
 #include <SDL.h>
 
 
-#include "texture.h"
+#include "asset.h"
+#include "game_object.h"
+#include "paddle.h"
 
 Engine::Engine() {
 
@@ -74,7 +76,7 @@ void Engine::simulate_physics(Uint32, Assets*) {
 				
 }
 
-void Engine::render(Uint32, Assets* assets) {
+void Engine::render(Uint32 miliseconds_to_simulate, Assets* assets) {
 
 				const int render_clear_success = 0;
 				const int render_clear_result = SDL_RenderClear(_renderer);
@@ -99,17 +101,20 @@ void Engine::render(Uint32, Assets* assets) {
 				}
 				
 				{
-								Texture* paddle = assets->get_texture("Texture.paddle_normal");
+								Paddle* paddle = new Paddle("paddle");
+								paddle->render(miliseconds_to_simulate, assets, _renderer);
+				}
+
+				/*{
+								Texture* paddle = (Texture*)assets->get_asset("Texture.paddle");
 								SDL_Rect destination;
 								destination.x = 400;
 								destination.y = 1170;
 								destination.w = 100;
 								destination.h = 15;
 								paddle->render(_renderer, nullptr, &destination, SDL_FLIP_NONE);
-				}
+				}*/
 				
-
-
 				SDL_RenderPresent(_renderer);
 }
 
