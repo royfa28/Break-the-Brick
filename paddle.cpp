@@ -32,6 +32,7 @@ void Paddle::simulate_AI(Uint32, Assets*, Input* input)
 
 				if (input->is_button_state(Input::Button::RIGHT, Input::Button_State::DOWN))
 				{
+								// Input are registered but sprite is not moving
 								_velocity += Vector_2D(1.0f, 0);
 								std::cout << "Move right" << std::endl;
 				}
