@@ -18,7 +18,10 @@ public:
     void expand();
     void reset();
     void update(float dt);
+    void set_speed(float speed);
+    float speed();
 
 private:
     int originalWidth;
+    float _speed;
 };

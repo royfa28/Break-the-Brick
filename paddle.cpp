@@ -2,12 +2,15 @@
 
 #include "paddle.h"
 
-Paddle::Paddle(std::string id) : Game_Object(id, "Texture.paddle") {
+#include <iostream>
+
+Paddle::Paddle(std::string id) : Game_Object(id, "Texture.paddle.move") {
 
 				_x = 400;
 				_y = 1170;
 				_width = 100;
 				_height = 15;
+				_speed = 0.1f;
 }
 
 Paddle::~Paddle() {
@@ -30,13 +33,23 @@ void Paddle::simulate_AI(Uint32, Assets*, Input* input)
 				if (input->is_button_state(Input::Button::RIGHT, Input::Button_State::DOWN))
 				{
 								_velocity += Vector_2D(1.0f, 0);
+								std::cout << "Move right" << std::endl;
 				}
 
 				if (input->is_button_state(Input::Button::LEFT, Input::Button_State::DOWN))
 				{
 								_velocity += Vector_2D(-1.0f, 0);
+								std::cout << "Move left" << std::endl;
 				}
 
 				_velocity.normalize();
-				_velocity.scale(0.1f);
+				_velocity.scale(_speed);
+}
+
+void Paddle::set_speed(float speed) {
+				_speed = speed;
+}
+
+float Paddle::speed() {
+				return _speed;
 }

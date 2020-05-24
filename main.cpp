@@ -25,30 +25,13 @@ int main(void)
 				// For handling with event
 				SDL_Event event;
 
-				while ( isRunning )
+				while (!input->is_button_state(Input::Button::QUIT, Input::Button_State::PRESSED))
 				{
-								while (SDL_PollEvent(&event)) {
-												
-												// Close the game if X is pressed
-												if (event.type == SDL_QUIT) {
-																isRunning = false;
-												}
-
-												/*
-												if (event.type == SDL_KEYUP && event.key.keysym.sym == SDLK_ESCAPE) {
-																isRunning = false;
-												}
-												*/
-								}
-
 								Uint32 previous_frame_duration = frame_end_time_ms - frame_start_time_ms;
 								frame_start_time_ms = SDL_GetTicks();
 
 								input->get_input();
 								engine->simulate(previous_frame_duration, assets, game_scene, input);
-
-								// I'm guessing I need an update function here to refresh the screen?
-
 
 								const Uint32 current_time_ms = SDL_GetTicks();
 								const Uint32 frame_duration_ms = current_time_ms - frame_start_time_ms;
@@ -59,7 +42,6 @@ int main(void)
 								}
 
 								frame_end_time_ms = SDL_GetTicks();
-
 				}
 
 				return 0;

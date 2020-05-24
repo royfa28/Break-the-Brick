@@ -16,12 +16,9 @@ Animated_Texture::~Animated_Texture()
 
 void Animated_Texture::update_frame(Uint32 milliseconds_to_simulate)
 {
-				/*
-								For some reason it is showing divide by 0?
-				*/
 				
 				_total_time_milliseconds += milliseconds_to_simulate;
-				//_current_frame = (_total_time_milliseconds / _frame_duration_milliseconds) % _frame_count;
+				_current_frame = (_total_time_milliseconds / _frame_duration_milliseconds) % _frame_count;
 }
 
 void Animated_Texture::render(SDL_Renderer* renderer, SDL_Rect*, SDL_Rect* destination, SDL_RendererFlip flip)
