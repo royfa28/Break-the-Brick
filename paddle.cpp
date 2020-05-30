@@ -6,11 +6,13 @@
 
 Paddle::Paddle(std::string id) : Game_Object(id, "Texture.paddle.move") {
 
-				_x = 400;
-				_y = 1170;
+				//x = 400;
+				//_y = 1170;
 				_width = 100;
 				_height = 15;
-				_speed = 0.1f;
+				_speed = 0.2f;
+
+				_translation = Vector_2D(400, 1170);
 }
 
 Paddle::~Paddle() {

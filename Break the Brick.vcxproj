@@ -153,7 +153,6 @@
     <ClCompile Include="animated_texture.cpp" />
     <ClCompile Include="asset.cpp" />
     <ClCompile Include="assets.cpp" />
-    <ClCompile Include="dino.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="game_object.cpp" />
     <ClCompile Include="game_scene.cpp" />
@@ -168,7 +167,6 @@
     <ClInclude Include="animated_texture.h" />
     <ClInclude Include="asset.h" />
     <ClInclude Include="assets.h" />
-    <ClInclude Include="dino.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="game_object.h" />
     <ClInclude Include="game_scene.h" />

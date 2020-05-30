@@ -5,25 +5,13 @@
 
 Assets::Assets(SDL_Renderer* renderer) {
 
-				// Cache the paddle
-				{
-								Texture* texture = new Texture("Texture.paddle", "Assets/paddle_normal.png", renderer);
-								_assets[texture->id()] = texture;
-				}
-
-				// Create player walking texture.
+				// Create paddle moving texture.
 				{
 								const int frame_count = 10;
 								const Uint32 frame_duration_milliseconds = 100;
 								Asset* paddle_texture = new Animated_Texture("Texture.paddle.move", "Assets/paddle_normal.png", 
 												renderer, frame_count, frame_duration_milliseconds);
 								_assets[paddle_texture->id()] = paddle_texture;
-				}
-
-				// Cache Dino Texture.
-				{
-								Texture* texture = new Texture("Texture.Dino", "Assets/dino.png", renderer);
-								_assets[texture->id()] = texture;
 				}
 }
 
