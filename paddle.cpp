@@ -6,13 +6,12 @@
 
 Paddle::Paddle(std::string id) : Game_Object(id, "Texture.paddle.move") {
 
-				//x = 400;
-				//_y = 1170;
 				_width = 100;
 				_height = 15;
 				_speed = 0.3f;
 
-				_translation = Vector_2D(400, 500);
+				// Spawn the paddle on the bottom middle part of the game
+				_translation = Vector_2D(550, 870);
 }
 
 Paddle::~Paddle() {

@@ -3,14 +3,9 @@
 #include "game_object.h"
 
 Game_Object::Game_Object(std::string id, std::string texture_id) : _translation(0,0), _velocity(0,0) {
+
 				_id = id;
 				_texture_id = texture_id;
-
-				//_x = 0;
-				//_y = 0;
-
-				_width = 100;
-				_height = 100;
 
 				_flip = SDL_FLIP_NONE;
 
@@ -35,8 +30,6 @@ void Game_Object::simulate_physics(Uint32 milliseconds_to_simulate, Assets*) {
 void Game_Object::render(Uint32, Assets* assets, SDL_Renderer* renderer) {
 
 				SDL_Rect destination;
-				//destination.x = _x;
-				//destination.y = _y;
 
 				destination.x = (int)_translation.x(); 
 				destination.y = (int)_translation.y();
@@ -67,5 +60,5 @@ Vector_2D Game_Object::translation() {
 
 void Game_Object::set_translation(Vector_2D translation) {
 	
-	_translation = translation;
+				_translation = translation;
 }
