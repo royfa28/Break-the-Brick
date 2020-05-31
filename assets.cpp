@@ -13,7 +13,20 @@ Assets::Assets(SDL_Renderer* renderer) {
 												renderer, frame_count, frame_duration_milliseconds);
 								_assets[paddle_texture->id()] = paddle_texture;
 				}
+
+
+				// Create brick moving texture.
+				{
+					//const int frame_count = 10;
+					//const Uint32 frame_duration_milliseconds = 100;
+					Asset* brick_texture = new Texture("Texture.brick.move", "Assets/brick_large_Blue.",
+						renderer);
+					_assets[brick_texture->id()] = brick_texture;
+				}
+
 }
+
+
 
 Assets::~Assets() {
 
