@@ -90,7 +90,7 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="brick.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

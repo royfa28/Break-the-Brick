@@ -27,8 +27,8 @@ Engine::Engine() {
 				const char* game_title = "Break the Brick";
 				const int x = 100;
 				const int y = 100;
-				const int width = 900;
-				const int height = 1200;
+				const int width = 1200; // screen width
+				const int height = 900 ; // screen height
 
 				// Caption of the window
 				_window = SDL_CreateWindow(game_title, x, y, width, height, 0);

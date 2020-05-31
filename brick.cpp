@@ -4,25 +4,27 @@
 
 #include <iostream>
 
-Brick::brick(std::string id) : Game_Object(id, "Texture.Bb.move") {
+Brick::Brick(std::string id) : Game_Object(id, "Texture.brick") {
 
 	//x = 400;
 	//_y = 1170;
-	_width = 100;
-	_height = 15;
-	_speed = 0.3f;
+	_width = 70;
+	_height = 30;
+	
 
-	_translation = Vector_2D(400, 500);
+	_translation = Vector_2D(50, 50);
 }
 
-Brick::~brick() {
+Brick::~Brick() {
 
 }
 
-void Brick::render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer)
+void Brick::simulate_AI(Uint32, Assets*, Input*)
 {
-	Animated_Texture* texture = (Animated_Texture*)assets->get_asset(_texture_id);
-	texture->update_frame(milliseconds_to_simulate);
 
-	Game_Object::render(milliseconds_to_simulate, assets, renderer);
 }
+
+/*void Brick::render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer)
+{
+	
+}*/

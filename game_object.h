@@ -23,6 +23,8 @@ public:
 
 				Vector_2D translation();
 
+				void set_translation(Vector_2D translation);
+
 protected:
 				std::string _id;
 				std::string _texture_id;

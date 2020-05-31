@@ -13,6 +13,7 @@ Game_Object::Game_Object(std::string id, std::string texture_id) : _translation(
 				_height = 100;
 
 				_flip = SDL_FLIP_NONE;
+
 }
 
 Game_Object::~Game_Object() {
@@ -62,4 +63,9 @@ void Game_Object::render(Uint32, Assets* assets, SDL_Renderer* renderer) {
 
 Vector_2D Game_Object::translation() {
 				return _translation;
+}
+
+void Game_Object::set_translation(Vector_2D translation) {
+	
+	_translation = translation;
 }
