@@ -33,15 +33,30 @@ void Paddle::simulate_AI(Uint32, Assets*, Input* input)
 
 				if (input->is_button_state(Input::Button::RIGHT, Input::Button_State::DOWN))
 				{
-								// Input are registered but sprite is not moving
-								_velocity += Vector_2D(1.0f, 0);
-								std::cout << "Move right" << std::endl;
+
+								// Making sure that the paddle doesnt move beyond the game wall
+								if (Game_Object::_translation.x() > (1200 - _width)) {
+												_velocity = Vector_2D(0, 0);
+												std::cout << "Wall right" << std::endl;
+								}
+								else {
+												_velocity += Vector_2D(1.0f, 0);
+												std::cout << "Move right" << std::endl;
+								}
+								
 				}
 
 				if (input->is_button_state(Input::Button::LEFT, Input::Button_State::DOWN))
 				{
-								_velocity += Vector_2D(-1.0f, 0);
-								std::cout << "Move left" << std::endl;
+								if (Game_Object::_translation.x() < 0) {
+												_velocity = Vector_2D(0, 0);
+												std::cout << "Wall left" << std::endl;
+								}
+								else {
+												_velocity += Vector_2D(-1.0f, 0);
+												std::cout << "Move left" << std::endl;
+								}
+
 				}
 
 				_velocity.normalize();
