@@ -33,7 +33,6 @@ protected:
 
 				Vector_2D _velocity;
 
-
 				int _x;
 				int _y;
 

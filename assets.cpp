@@ -21,6 +21,15 @@ Assets::Assets(SDL_Renderer* renderer) {
 								_assets[brick_texture->id()] = brick_texture;
 				}
 
+				// Cache the ball texture
+				{
+								const int frame_count = 10;
+								const Uint32 frame_duration_milliseconds = 100;
+								Asset* ball_texture = new Animated_Texture("Texture.ball.move", "Assets/paddle_normal.png",
+												renderer, frame_count, frame_duration_milliseconds);
+								_assets[ball_texture->id()] = ball_texture;
+				}
+
 }
 
 Assets::~Assets() {

@@ -153,6 +153,7 @@
     <ClCompile Include="animated_texture.cpp" />
     <ClCompile Include="asset.cpp" />
     <ClCompile Include="assets.cpp" />
+    <ClCompile Include="ball.cpp" />
     <ClCompile Include="brick.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="game_object.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="animated_texture.h" />
     <ClInclude Include="asset.h" />
     <ClInclude Include="assets.h" />
+    <ClInclude Include="ball.h" />
     <ClInclude Include="brick.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="game_object.h" />

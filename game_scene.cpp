@@ -1,6 +1,7 @@
 #include "game_scene.h"
 #include "paddle.h"
 #include "brick.h"
+#include "ball.h"
 #include <iostream>
 
 Game_Scene::Game_Scene() : Scene("Game") {
@@ -31,6 +32,9 @@ Game_Scene::Game_Scene() : Scene("Game") {
 												brick-> set_translation(Vector_2D(x_position, y_position));
 								}
 				}
+
+				Game_Object* ball = new Ball("ball.move");
+				_game_objects[ball->id()] = ball;
 }
 
 Game_Scene::~Game_Scene() {
