@@ -35,12 +35,23 @@ void Game_Object::simulate_physics(Uint32 milliseconds_to_simulate, Assets*, Sce
 												continue;
 								}
 
+								/*
+												Can I put if statement for game_object id?
+
+												if id == paddle 
+																do not destroy game_object
+												else
+																destroy game_object
+								*/
+
 								Circle_2D circleCollider = Circle_2D(_circlecollider.radius(), _circlecollider.translation() + _translation);
 								Box_2D boxCollider = Box_2D(game_object->_boxCollider.width(), game_object->_boxCollider.height(), game_object->translation());
 
 								float intersection_depth = circleCollider.intersection_depth(boxCollider);
 
-
+								/*
+												Not sure on how to do the code for box -> circle collision
+								*/
 				}
 
 
