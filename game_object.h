@@ -8,7 +8,7 @@
 #include "assets.h"
 #include "input.h"
 #include "vector_2D.h"
-#include "circle_2D.h"
+#include "collision_2D.h"
 
 class Game_Object {
 
@@ -23,7 +23,7 @@ public:
 				virtual void render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer);
 
 				Vector_2D translation();
-				Circle_2D collider();
+				Collision_2D collider();
 
 				void set_translation(Vector_2D translation);
 
@@ -34,7 +34,7 @@ protected:
 				Vector_2D _translation;
 				Vector_2D _velocity;
 
-				Circle_2D _collider;
+				Collision_2D _collider;
 
 				int _x;
 				int _y;

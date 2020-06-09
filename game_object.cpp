@@ -66,9 +66,22 @@ void Game_Object::render(Uint32, Assets* assets, SDL_Renderer* renderer) {
 
 								collider_texture->render(renderer, nullptr, &collider_destination, SDL_FLIP_NONE);
 				}
+
+				// Check box collider texture
+				{
+								Texture* collider_texture = (Texture*)assets->get_asset("Texture.BoxCollider");
+
+								SDL_Rect collider_destination;
+								collider_destination.x = (int)(_translation.x() + _collider.translation().x() - _collider.width() /2);
+								collider_destination.y = (int)(_translation.y() + _collider.translation().y() - _collider.height() /2);
+								collider_destination.w = (int)(_collider.width());
+								collider_destination.h = (int)(_collider.height());
+
+								collider_texture->render(renderer, nullptr, &collider_destination, SDL_FLIP_NONE);
+				}
 }
 
-Circle_2D Game_Object::collider() {
+Collision_2D Game_Object::collider() {
 				return _collider;
 }
 
