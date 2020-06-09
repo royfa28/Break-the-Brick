@@ -3,23 +3,25 @@
 #include "ball.h"
 #include <iostream>
 
-Ball::Ball(std::string id) : Game_Object(id, "Texture.paddle.move")
-{
-				// _x = 150;
-				// _y = 50;
+Ball::Ball(std::string id) : Game_Object(id, "Texture.paddle.move") {
+
 				_width = 15;
 				_height = 15;
-				_translation = Vector_2D(550, 800);
+				
 				xSpeed = 0.3f;
 				ySpeed = -0.3f;
+
+				_translation = Vector_2D(550, 800);
 				_velocity = Vector_2D(xSpeed, ySpeed);
-}
-Ball::~Ball()
-{
+
+				_collider.set_radius(_width);
+				_collider.set_translation(Vector_2D(_width / 2.0f, (float)_height));
 }
 
-void Ball::render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer)
-{
+Ball::~Ball() {
+}
+
+void Ball::render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer) {
 				Animated_Texture* texture = (Animated_Texture*)assets->get_asset(_texture_id);
 				texture->update_frame(milliseconds_to_simulate);
 

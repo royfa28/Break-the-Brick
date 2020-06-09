@@ -30,6 +30,12 @@ Assets::Assets(SDL_Renderer* renderer) {
 								_assets[ball_texture->id()] = ball_texture;
 				}
 
+				// Create collider texture
+				{
+								Texture* texture = new Texture("Texture.Collider", "Assets/collider.png", renderer);
+								_assets[texture->id()] = texture;
+				}
+
 }
 
 Assets::~Assets() {
