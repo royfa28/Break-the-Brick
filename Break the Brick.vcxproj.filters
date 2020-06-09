@@ -57,7 +57,10 @@
     <ClCompile Include="ball.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="collision_2D.cpp">
+    <ClCompile Include="box_2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="circle_2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,7 +104,10 @@
     <ClInclude Include="ball.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="collision_2D.h">
+    <ClInclude Include="box_2D.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle_2D.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

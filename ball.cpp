@@ -14,8 +14,8 @@ Ball::Ball(std::string id) : Game_Object(id, "Texture.paddle.move") {
 				_translation = Vector_2D(550, 800);
 				_velocity = Vector_2D(xSpeed, ySpeed);
 
-				_collider.set_radius(_width / 2.0f);
-				_collider.set_translation(Vector_2D(_width / 2.0f, (float)_height / 2.0f));
+				_circlecollider.set_radius(_width / 2.0f);
+				_circlecollider.set_translation(Vector_2D(_width / 2.0f, (float)_height / 2.0f));
 }
 
 Ball::~Ball() {
