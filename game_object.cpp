@@ -1,6 +1,7 @@
 #pragma once
 
 #include "game_object.h"
+#include "game_scene.h"
 
 Game_Object::Game_Object(std::string id, std::string texture_id) : _translation(0,0), 
 _velocity(0,0), _circlecollider(0.0f , Vector_2D(0.f, 0.f)), _boxCollider(0.0f, 0.0f, Vector_2D(0.f, 0.f)) {
@@ -10,10 +11,11 @@ _velocity(0,0), _circlecollider(0.0f , Vector_2D(0.f, 0.f)), _boxCollider(0.0f, 
 
 				_flip = SDL_FLIP_NONE;
 
+				ballXSpeed = 0.1f;
+				ballYSpeed = 0.1f;
 }
 
 Game_Object::~Game_Object() {
-
 }
 
 std::string Game_Object::id() {
@@ -27,7 +29,6 @@ void Game_Object::simulate_physics(Uint32 milliseconds_to_simulate, Assets*, Sce
 
 				_translation += velocity;
 
-
 				for (Game_Object* game_object : scene->get_game_objects()) {				// For loop to get all the IDs in the scene
 
 								if (game_object->id() == _id)
@@ -35,9 +36,9 @@ void Game_Object::simulate_physics(Uint32 milliseconds_to_simulate, Assets*, Sce
 												continue;
 								}
 
-								if (game_object->id() == "paddle.move") {
+								if (game_object->id() != "paddle.move") {
+
 								}
-								
 								/*
 												Can I put if statement for game_object id?
 
@@ -52,22 +53,67 @@ void Game_Object::simulate_physics(Uint32 milliseconds_to_simulate, Assets*, Sce
 
 								float intersection_depth = circleCollider.intersection_depth(boxCollider, circleCollider);
 								
+
+								// This whole section is basically the bounce **can probably make it super short / simple but couldn't figure out how
 								if (intersection_depth == 0.0f) {
 												scene->remove_game_objects(game_object->id());
-								}
-								/*
-								Are they the same? Or is one way easier than the other?
+												Game_Object* ball = scene->get_game_object("ball.move");
 
-												float intersection_depth = circleCollider.intersection_depth(boxCollider);
-												float intersection_depth = boxCollider.intersection_depth(circleCollider);
-								*/
+												ballXSpeed = 0.1f;
+												if (ballYSpeed == 0.1f) {																											
+																_velocity = Vector_2D(ballXSpeed, ballYSpeed);
+												}
+												else {																																										
+																_velocity = Vector_2D(ballXSpeed, ballYSpeed);
+																std::cout << "xSpeed :" << ballYSpeed << std::endl;
+												}
+								}
+								else if (intersection_depth == 1.0f) {
+												scene->remove_game_objects(game_object->id());
+												Game_Object* ball = scene->get_game_object("ball.move");
+
+												ballYSpeed = 0.1f;
+												if (ballXSpeed == 0.1f) {
+																_velocity = Vector_2D(ballXSpeed, -ballYSpeed);
+																std::cout << "xSpeed :" << ballXSpeed << "ySpeed : " << ballYSpeed << std::endl;
+												}
+												else {
+																_velocity = Vector_2D(ballXSpeed, -ballYSpeed);
+												}
+								}
+								else if (intersection_depth == 2.0f) {
+												scene->remove_game_objects(game_object->id());
+												Game_Object* ball = scene->get_game_object("ball.move");
+
+												ballXSpeed = -0.1f;
+												if (ballYSpeed == 0.1f) {
+																_velocity = Vector_2D(ballXSpeed, ballYSpeed);
+																std::cout << "xSpeed :" << ballXSpeed << "ySpeed : " << ballYSpeed << std::endl;
+												}
+												else {
+																_velocity = Vector_2D(ballXSpeed, ballYSpeed);
+																std::cout << "xSpeed :" << ballXSpeed << "ySpeed : " << ballYSpeed << std::endl;
+												}
+								}
+								else if (intersection_depth == 3.0f) {
+												scene->remove_game_objects(game_object->id());
+												Game_Object* ball = scene->get_game_object("ball.move");
+
+												ballYSpeed = -0.1f;
+												if (ballXSpeed == 0.1f) {
+																_velocity = Vector_2D(ballXSpeed, ballYSpeed);
+																std::cout << "xSpeed :" << ballXSpeed << "ySpeed : " << ballYSpeed << std::endl;
+												}
+												else {
+																_velocity = Vector_2D(ballXSpeed, ballYSpeed);
+																std::cout << "xSpeed :" << ballXSpeed << "ySpeed : " << ballYSpeed << std::endl;
+												}
+								}
 
 								/*
 												Not sure on how to do the code for box -> circle collision
 								*/
 				}
-
-
 }
 
 void Game_Object::render(Uint32, Assets* assets, SDL_Renderer* renderer) {
@@ -138,4 +184,8 @@ Vector_2D Game_Object::translation() {
 void Game_Object::set_translation(Vector_2D translation) {
 	
 				_translation = translation;
+}
+
+void Game_Object::set_velocity(Vector_2D velocity) {
+
 }

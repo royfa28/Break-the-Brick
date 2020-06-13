@@ -30,6 +30,9 @@ public:
 				Circle_2D circleCollider();
 
 				void set_translation(Vector_2D translation);
+				void set_velocity(Vector_2D velocity);
+
+				float ballXSpeed, ballYSpeed;
 
 protected:
 				std::string _id;

@@ -11,9 +11,9 @@ Ball::Ball(std::string id) : Game_Object(id, "Texture.paddle.move") {
 				_height = 15;
 				
 				xSpeed = 0.1f;
-				ySpeed = -0.1f;
+				ySpeed = 0.1f;
 
-				// Randomly generate a number for the X position.
+				// Randomly generate a number for the X position. 
 				int seed = (int)time(NULL);
 				std::minstd_rand0 generator(seed);
 				float random = (float)generator() / generator.min();
@@ -24,8 +24,7 @@ Ball::Ball(std::string id) : Game_Object(id, "Texture.paddle.move") {
 				std::cout << randomXPos << std::endl;
 
 				_translation = Vector_2D(randomXPos, 800);
-				_velocity = Vector_2D(xSpeed, ySpeed);
-
+				_velocity = Vector_2D(xSpeed, -ySpeed);
 
 				_circlecollider.set_radius(_width / 2.0f);
 				_circlecollider.set_translation(Vector_2D(_width / 2.0f, (float)_height / 2.0f));
@@ -46,14 +45,14 @@ void Ball::simulate_AI(Uint32, Assets*, Input*) {
 
 				// Making sure that the ball doesnt move beyond the game wall
 				if (Game_Object::_translation.x() > (1200 - _width)) {
-								xSpeed = -0.1f;																																	// Moving with x Negative
+								xSpeed = -0.1f;
 								if (ySpeed == 0.1f) {																											// If the ball is moving down then bounce up
-												_velocity = Vector_2D(xSpeed, ySpeed);
-												std::cout << "1" << std::endl;
+												_velocity = Vector_2D(-xSpeed, ySpeed);
+												std::cout << "xSpeed :" << xSpeed << "ySpeed : " << ySpeed << std::endl;
 								}
 								else {																																										// If the ball is moving up then bounce down
-												_velocity = Vector_2D(xSpeed, ySpeed);
-												std::cout << "2" << std::endl;
+												_velocity = Vector_2D(-xSpeed, ySpeed);
+												std::cout << "xSpeed :" << xSpeed << "ySpeed : " << ySpeed << std::endl;
 								}
 
 				}
@@ -61,34 +60,33 @@ void Ball::simulate_AI(Uint32, Assets*, Input*) {
 								ySpeed = 0.1f;
 								if (xSpeed == 0.1f) {
 												_velocity = Vector_2D( xSpeed, ySpeed);
-												std::cout << "3" << std::endl;
+												std::cout << "xSpeed :" << xSpeed << "ySpeed : " << ySpeed << std::endl;
 								}
 								else {
 												_velocity = Vector_2D( xSpeed, ySpeed);
-												std::cout << "4" << std::endl;
+												std::cout << "xSpeed :" << xSpeed << "ySpeed : " << ySpeed << std::endl;
 								}
-
 				}
 				else if (Game_Object::_translation.y() > (900 - _height)) {
 								ySpeed = -0.1f;
-								if (xSpeed == -0.1f) {
+								if (xSpeed == 0.1f) {
 												_velocity = Vector_2D(xSpeed, ySpeed);
-												std::cout << "5" << std::endl;
+												std::cout << "xSpeed :" << xSpeed << "ySpeed : " << ySpeed << std::endl;
 								}
 								else {
 												_velocity = Vector_2D(xSpeed, ySpeed);
-												std::cout << "6" << std::endl;
+												std::cout << "xSpeed :" << xSpeed << "ySpeed : " << ySpeed << std::endl;
 								}
 				}
 				else if (Game_Object::_translation.x() < 0) {
 								xSpeed = 0.1f;
 								if (ySpeed == 0.1f) {
 												_velocity = Vector_2D(xSpeed, ySpeed);
-												std::cout << "7" << std::endl;
+												std::cout << "xSpeed :" << xSpeed << "ySpeed : " << ySpeed << std::endl;
 								}
 								else {
 												_velocity = Vector_2D(xSpeed, ySpeed);
-												std::cout << "8" << std::endl;
+												std::cout << "xSpeed :" << xSpeed << "ySpeed : " << ySpeed << std::endl;
 								}
 
 				}
@@ -97,15 +95,17 @@ void Ball::simulate_AI(Uint32, Assets*, Input*) {
 void Ball::ballCollision(int response) {
 
 				std::cout << "It works" << std::endl;
-				xSpeed = 0.3f;
-				ySpeed = -0.3f;
+				xSpeed = 0.1f;
+				ySpeed = -0.1f;
+
 				// Response 0: left, 1: Top, 2: Right, 3: Bottom
-				if (xSpeed == 0.3f) {
+				if (xSpeed == 0.1f) {
 								// Ball is moving in the positive X direction >> Right
-								if (ySpeed == 0.3f) {
+								if (ySpeed == 0.1f) {
 												// Ball is moving in the positive Y direction >> Bottom
 												if (response == 0 || response == 1) {
 																_velocity = Vector_2D(-xSpeed, ySpeed);
+																Game_Object::_velocity = Vector_2D(-xSpeed, ySpeed);
 																std::cout << "Left or Top" << std::endl;
 												}
 												else {
@@ -113,7 +113,7 @@ void Ball::ballCollision(int response) {
 																std::cout << "Right or Bot" << std::endl;
 												}
 								}
-								else if (ySpeed == -0.3f) {
+								else if (ySpeed == -0.1f) {
 												// Ball is moving in the negative Y direction >> Top
 												if (response == 0 || response == 3) {
 																_velocity = Vector_2D(-xSpeed, ySpeed);
@@ -125,9 +125,9 @@ void Ball::ballCollision(int response) {
 												}
 								}
 				}
-				else if (xSpeed == -0.3f) {
+				else if (xSpeed == -0.1f) {
 								// Ball is moving on negative X direction >> Left
-								if (ySpeed == 0.3f) {
+								if (ySpeed == 0.1f) {
 												// Ball is moving in the positive Y direction >> Bottom
 												if (response == 1 || response == 2) {
 																_velocity = Vector_2D(-xSpeed, ySpeed);
@@ -138,7 +138,7 @@ void Ball::ballCollision(int response) {
 																std::cout << "Left or Bottom" << std::endl;
 												}
 								}
-								else if (ySpeed == -0.3f) {
+								else if (ySpeed == -0.1f) {
 												// Ball is moving in the negative Y direction >> Top
 												if (response == 2 || response == 3) {
 																_velocity = Vector_2D(-xSpeed, ySpeed);
@@ -150,6 +150,4 @@ void Ball::ballCollision(int response) {
 												}
 								}
 				}
-
-
 }
