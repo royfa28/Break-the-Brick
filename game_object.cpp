@@ -52,7 +52,10 @@ void Game_Object::simulate_physics(Uint32 milliseconds_to_simulate, Assets*, Sce
 								Box_2D boxCollider = Box_2D(game_object->_boxCollider.width(), game_object->_boxCollider.height(), game_object->translation());
 
 								float intersection_depth = circleCollider.intersection_depth(boxCollider, circleCollider);
-
+								
+								if (intersection_depth == 0.0f) {
+												scene->remove_game_objects(game_object->id());
+								}
 								/*
 								Are they the same? Or is one way easier than the other?
 
