@@ -32,7 +32,7 @@ public:
 				void set_translation(Vector_2D translation);
 				void set_velocity(Vector_2D velocity);
 
-				float ballXSpeed, ballYSpeed;
+				Box_2D _boxCollider;
 
 protected:
 				std::string _id;
@@ -42,7 +42,7 @@ protected:
 				Vector_2D _velocity;
 
 				Circle_2D _circlecollider;
-				Box_2D _boxCollider;
+				
 
 				int _x;
 				int _y;

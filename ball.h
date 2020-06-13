@@ -9,6 +9,7 @@ public:
     Ball(std::string id);
     ~Ball();
 
+    virtual void simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scene);
     virtual void simulate_AI(Uint32 milliseconds_to_simulate, Assets* assets, Input* input) override;
     virtual void render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer) override;
 

@@ -48,7 +48,7 @@ float Circle_2D::intersection_depth(Box_2D other, Circle_2D circleCollider) // D
 								if (ballYPosition <= brickYPosition + brickHeight)
 								{
 												std::cout << "Hit from btm" << std::endl;
-												ball.ballCollision(3);
+												//ball.ballCollision(3);
 												return 3.0;
 								}
 								//Hit was from below the brick
@@ -56,14 +56,14 @@ float Circle_2D::intersection_depth(Box_2D other, Circle_2D circleCollider) // D
 								if (ballYPosition < brickYPosition)
 								{
 												std::cout << "Hit from top" << std::endl;
-												ball.ballCollision(1);
+												//ball.ballCollision(1);
 												return 1.0;
 								}
 								//Hit was from above the brick
 
 								if (ballXPosition < brickXPosition)
 								{
-												ball.ballCollision(0);
+												//ball.ballCollision(0);
 												std::cout << "Hit from left" << std::endl;
 												return 0.0;
 								}
@@ -71,32 +71,11 @@ float Circle_2D::intersection_depth(Box_2D other, Circle_2D circleCollider) // D
 
 								if (ballXPosition > brickXPosition + brickWidth)
 								{
-												ball.ballCollision(2);
+												//	ball.ballCollision(2);
 												std::cout << "Hit from right" << std::endl;
 												return 2.0;
 								}
 								//Hit was on right
 				}
-				/*
-								// which edge is closest?
-				if (ballXPosition < brickXPosition)
-								testX = rx;																																	// test left edge
-				else if (ballXPosition > brickXPosition + brickWidth) 
-								testX = brickXPosition + rw;																// right edge
-				if (ballYPosition < brickYPosition)         
-								testY = brickYPosition;																					// top edge
-				else if (ballYPosition > brickYPosition + brickHeight) 
-								testY = ry + rh;																												// bottom edge
-
-				// get distance from closest edges
-				float distX = ballXPosition - testX;
-				float distY = ballYPosition - testY;
-				float distance = sqrt((distX * distX) + (distY * distY));
-
-				// if the distance is less than the radius, collision!
-				if (distance <= radius) {
-								return true;
-				}
-				*/
 				return 0.1f;
 }
