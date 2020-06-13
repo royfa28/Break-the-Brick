@@ -35,6 +35,10 @@ void Game_Object::simulate_physics(Uint32 milliseconds_to_simulate, Assets*, Sce
 												continue;
 								}
 
+								if (game_object->id() != "paddle.move") {
+
+								}
+
 								/*
 												Can I put if statement for game_object id?
 
@@ -46,6 +50,8 @@ void Game_Object::simulate_physics(Uint32 milliseconds_to_simulate, Assets*, Sce
 
 								Circle_2D circleCollider = Circle_2D(_circlecollider.radius(), _circlecollider.translation() + _translation);
 								Box_2D boxCollider = Box_2D(game_object->_boxCollider.width(), game_object->_boxCollider.height(), game_object->translation());
+
+								float intersection_depth = circleCollider.intersection_depth(boxCollider, circleCollider);
 
 								/*
 								Are they the same? Or is one way easier than the other?
@@ -103,7 +109,7 @@ void Game_Object::render(Uint32, Assets* assets, SDL_Renderer* renderer) {
 
 				// Check box collider texture
 				{
-								Texture* collider_texture = (Texture*)assets->get_asset("Texture.BoxCollider");
+								/*Texture* collider_texture = (Texture*)assets->get_asset("Texture.BoxCollider");
 
 								SDL_Rect collider_destination;
 								collider_destination.x = (int)(_translation.x() + _boxCollider.translation().x() - _boxCollider.width() /2);
@@ -111,7 +117,7 @@ void Game_Object::render(Uint32, Assets* assets, SDL_Renderer* renderer) {
 								collider_destination.w = (int)(_boxCollider.width());
 								collider_destination.h = (int)(_boxCollider.height());
 
-								collider_texture->render(renderer, nullptr, &collider_destination, SDL_FLIP_NONE);
+								collider_texture->render(renderer, nullptr, &collider_destination, SDL_FLIP_NONE);*/
 				}
 }
 

@@ -17,17 +17,16 @@ Game_Scene::Game_Scene() : Scene("Game") {
 				// Populate the bricks depending on the number of rows and columns
 				for (int y = 0; y < bricks_y; y++) {
 								for (int x = 0; x < bricks_x; x++) {
-												
-												std::string id = "brick.y" + std::to_string(y) + ".x." + std::to_string(x);
-												std::cout << id << std::endl;
-												
-												Brick* brick = new Brick(id);
-												_game_objects[brick->id()] = brick;
-												
 
 												// Move the next brick position based on the width and height of the brick + 5
 												float y_position = (float)50 + (y * 35);
 												float x_position = (float)40 + (x * 75);
+												
+												std::string id = "brick.y" + std::to_string(y_position) + ".x." + std::to_string(x_position);
+												std::cout << id << std::endl;
+												
+												Brick* brick = new Brick(id);
+												_game_objects[brick->id()] = brick;
 												
 												brick-> set_translation(Vector_2D(x_position, y_position));
 								}
