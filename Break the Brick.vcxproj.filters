@@ -92,5 +92,26 @@
     <ClInclude Include="brick.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Desktop\SDL2_mixer-2.0.4\include\SDL_mixer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Break the Brick.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\Desktop\SDL2_mixer-2.0.4\lib\x86\SDL2_mixer.lib">
+      <Filter>Source Files</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\Desktop\SDL2_mixer-2.0.4\lib\x86\SDL2_mixer.dll">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

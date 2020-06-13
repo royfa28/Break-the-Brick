@@ -165,6 +165,7 @@
     <ClCompile Include="vector_2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\Desktop\SDL2_mixer-2.0.4\include\SDL_mixer.h" />
     <ClInclude Include="animated_texture.h" />
     <ClInclude Include="asset.h" />
     <ClInclude Include="assets.h" />
@@ -174,9 +175,19 @@
     <ClInclude Include="game_scene.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="paddle.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="texture.h" />
     <ClInclude Include="vector_2D.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Break the Brick.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\Desktop\SDL2_mixer-2.0.4\lib\x86\SDL2_mixer.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\Desktop\SDL2_mixer-2.0.4\lib\x86\SDL2_mixer.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
