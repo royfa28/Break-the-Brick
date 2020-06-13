@@ -9,6 +9,7 @@ Game_Scene::Game_Scene() : Scene("Game") {
 				Game_Object* paddle = new Paddle("paddle.move");
 				_game_objects[paddle->id()] = paddle;
 
+				_brick = 1;
 
 				// Number of rows and columns for the bricks
 				int bricks_x = 15;
@@ -23,15 +24,18 @@ Game_Scene::Game_Scene() : Scene("Game") {
 												float x_position = (float)40 + (x * 75);
 												
 												std::string id = "brick.y" + std::to_string(y_position) + ".x." + std::to_string(x_position);
-												std::cout << id << std::endl;
+
+												//std::cout << brickCount << std::endl;
 												
 												Brick* brick = new Brick(id);
 												_game_objects[brick->id()] = brick;
 												
 												brick-> set_translation(Vector_2D(x_position, y_position));
+												brickCount(1);
 								}
 				}
 
+				// Ball object
 				Game_Object* ball = new Ball("ball.move");
 				_game_objects[ball->id()] = ball;
 }
@@ -40,4 +44,18 @@ Game_Scene::~Game_Scene() {
 }
 
 void Game_Scene::update(SDL_Window*) {
+}
+
+void Game_Scene::brickCount(int brick) {
+
+				if (_brick == 0) {
+								//std::cout << "Lose" << std::endl;
+
+				}
+				else {
+								_brick += brick;
+
+								//std::cout << _brick << std::endl;
+				}
+				
 }

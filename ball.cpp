@@ -2,6 +2,8 @@
 
 #include "ball.h"
 #include <iostream>
+#include <random>
+#include <time.h>
 
 Ball::Ball(std::string id) : Game_Object(id, "Texture.paddle.move") {
 
@@ -11,8 +13,19 @@ Ball::Ball(std::string id) : Game_Object(id, "Texture.paddle.move") {
 				xSpeed = 0.1f;
 				ySpeed = -0.1f;
 
-				_translation = Vector_2D(550, 800);
+				// Randomly generate a number for the X position.
+				int seed = (int)time(NULL);
+				std::minstd_rand0 generator(seed);
+				float random = (float)generator() / generator.min();
+				
+				std::minstd_rand0 randomXGenerator(random);
+				float randomXPos = ((float)randomXGenerator() / randomXGenerator.max()) * 1100;
+
+				std::cout << randomXPos << std::endl;
+
+				_translation = Vector_2D(randomXPos, 800);
 				_velocity = Vector_2D(xSpeed, ySpeed);
+
 
 				_circlecollider.set_radius(_width / 2.0f);
 				_circlecollider.set_translation(Vector_2D(_width / 2.0f, (float)_height / 2.0f));
@@ -20,6 +33,7 @@ Ball::Ball(std::string id) : Game_Object(id, "Texture.paddle.move") {
 
 Ball::~Ball() {
 }
+
 
 void Ball::render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer) {
 				Animated_Texture* texture = (Animated_Texture*)assets->get_asset(_texture_id);
@@ -78,12 +92,13 @@ void Ball::simulate_AI(Uint32, Assets*, Input*) {
 								}
 
 				}
-
 }
 
 void Ball::ballCollision(int response) {
 
 				std::cout << "It works" << std::endl;
+				xSpeed = 0.3f;
+				ySpeed = -0.3f;
 				// Response 0: left, 1: Top, 2: Right, 3: Bottom
 				if (xSpeed == 0.3f) {
 								// Ball is moving in the positive X direction >> Right

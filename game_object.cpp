@@ -35,10 +35,9 @@ void Game_Object::simulate_physics(Uint32 milliseconds_to_simulate, Assets*, Sce
 												continue;
 								}
 
-								if (game_object->id() != "paddle.move") {
-
+								if (game_object->id() == "paddle.move") {
 								}
-
+								
 								/*
 												Can I put if statement for game_object id?
 

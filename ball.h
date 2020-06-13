@@ -13,7 +13,7 @@ public:
     virtual void render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer) override;
 
     void ballCollision(int response);
-    float x, y, width, height;
+    //float x, y, width, height;
 
     float xSpeed, ySpeed;
 

@@ -14,7 +14,7 @@ int main(void)
 				Input* input = new Input();
 
 				const Uint32 milliseconds_per_seconds = 1000;
-				const Uint32 frames_per_second = 120;
+				const Uint32 frames_per_second = 60;
 				const Uint32 frame_time_ms = milliseconds_per_seconds / frames_per_second;
 
 				Uint32 frame_start_time_ms = 0;

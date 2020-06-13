@@ -25,7 +25,7 @@ Engine::Engine() {
 
 				// Size of the window
 				const char* game_title = "Break the Brick";
-				const int x = 100;
+				const int x = 400;
 				const int y = 100;
 				const int width = 1200; // screen width
 				const int height = 900 ; // screen height
