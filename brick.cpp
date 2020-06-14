@@ -6,13 +6,12 @@
 
 Brick::Brick(std::string id) : Game_Object(id, "Texture.brick") {
 
-	//x = 400;
-	//_y = 1170;
-	_width = 70;
-	_height = 30;
-	
+				// Brick size
+				_width = 70;
+				_height = 30;
 
-	_translation = Vector_2D(50, 50);
+				_boxCollider.setSize(_width, _height);
+				_boxCollider.set_translation(Vector_2D(_width / 2.0f, (float)_height / 2.0f));
 }
 
 Brick::~Brick() {
@@ -23,8 +22,3 @@ void Brick::simulate_AI(Uint32, Assets*, Input*)
 {
 
 }
-
-/*void Brick::render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer)
-{
-	
-}*/

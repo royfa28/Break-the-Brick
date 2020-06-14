@@ -37,6 +37,10 @@ Game_Object* Scene::get_game_object(std::string id)
 				return _game_objects[id];
 }
 
+void Scene::remove_game_objects(std::string id) {
+				_game_objects.erase(id);
+}
+
 std::string Scene::id()
 {
 				return _id;

@@ -8,8 +8,8 @@
 #include "scene.h"
 #include "input.h"
 
-class Engine
-{
+class Engine {
+
 public:
 				Engine();
 				~Engine();

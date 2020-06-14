@@ -153,7 +153,10 @@
     <ClCompile Include="animated_texture.cpp" />
     <ClCompile Include="asset.cpp" />
     <ClCompile Include="assets.cpp" />
+    <ClCompile Include="ball.cpp" />
+    <ClCompile Include="box_2D.cpp" />
     <ClCompile Include="brick.cpp" />
+    <ClCompile Include="circle_2D.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="game_object.cpp" />
     <ClCompile Include="game_scene.cpp" />
@@ -165,11 +168,13 @@
     <ClCompile Include="vector_2D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Desktop\SDL2_mixer-2.0.4\include\SDL_mixer.h" />
     <ClInclude Include="animated_texture.h" />
     <ClInclude Include="asset.h" />
     <ClInclude Include="assets.h" />
+    <ClInclude Include="ball.h" />
+    <ClInclude Include="box_2D.h" />
     <ClInclude Include="brick.h" />
+    <ClInclude Include="circle_2D.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="game_object.h" />
     <ClInclude Include="game_scene.h" />
@@ -182,12 +187,6 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Break the Brick.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="..\..\..\Desktop\SDL2_mixer-2.0.4\lib\x86\SDL2_mixer.lib" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\Desktop\SDL2_mixer-2.0.4\lib\x86\SDL2_mixer.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

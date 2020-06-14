@@ -25,7 +25,7 @@ Engine::Engine() {
 
 				// Size of the window
 				const char* game_title = "Break the Brick";
-				const int x = 100;
+				const int x = 400;
 				const int y = 100;
 				const int width = 1200; // screen width
 				const int height = 900 ; // screen height
@@ -80,7 +80,7 @@ void Engine::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, S
 				std::vector<Game_Object*> game_objects = scene->get_game_objects();
 				for (Game_Object* game_object : game_objects)
 				{
-								game_object->simulate_physics(milliseconds_to_simulate, assets);
+								game_object->simulate_physics(milliseconds_to_simulate, assets, scene);
 				}
 }
 
