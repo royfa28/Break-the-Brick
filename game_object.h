@@ -30,7 +30,11 @@ public:
 				Circle_2D circleCollider();
 
 				void set_translation(Vector_2D translation);
-				void set_velocity(Vector_2D velocity);
+
+				int hp();
+				int bricks();
+				//virtual void set_hp(int hp);
+				//virtual void set_bricks(int bricks);
 
 				Box_2D _boxCollider;
 
@@ -43,10 +47,11 @@ protected:
 
 				Circle_2D _circlecollider;
 				
-
 				int _x;
 				int _y;
 
+				int _hp;
+				int _bricks;
 				int _width;
 				int _height;
 

@@ -68,7 +68,7 @@ void Game_Object::render(Uint32, Assets* assets, SDL_Renderer* renderer) {
 
 				// Check box collider texture
 				{
-								/*Texture* collider_texture = (Texture*)assets->get_asset("Texture.BoxCollider");
+								Texture* collider_texture = (Texture*)assets->get_asset("Texture.BoxCollider");
 
 								SDL_Rect collider_destination;
 								collider_destination.x = (int)(_translation.x() + _boxCollider.translation().x() - _boxCollider.width() /2);
@@ -76,7 +76,8 @@ void Game_Object::render(Uint32, Assets* assets, SDL_Renderer* renderer) {
 								collider_destination.w = (int)(_boxCollider.width());
 								collider_destination.h = (int)(_boxCollider.height());
 
-								collider_texture->render(renderer, nullptr, &collider_destination, SDL_FLIP_NONE);*/
+								collider_texture->render(renderer, nullptr, &collider_destination, SDL_FLIP_NONE);
+
 				}
 }
 
@@ -97,6 +98,11 @@ void Game_Object::set_translation(Vector_2D translation) {
 				_translation = translation;
 }
 
-void Game_Object::set_velocity(Vector_2D velocity) {
-
-}
+//int Game_Object::hp()
+//{
+//				return _hp;
+//}
+//
+//int Game_Object::bricks() {
+//				return _bricks;
+//}

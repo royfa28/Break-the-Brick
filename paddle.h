@@ -14,12 +14,7 @@ public:
 
     float x, y, width, height;
 
-    void shrink();
-    void expand();
-    void reset();
-    void update(float dt);
-    void set_speed(float speed);
-    float speed();
+    void set_hp(int hp);
 
 private:
     int originalWidth;

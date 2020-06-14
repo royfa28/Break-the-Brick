@@ -12,26 +12,31 @@ Game_Scene::Game_Scene() : Scene("Game") {
 				_brick = 90;
 
 				// Number of rows and columns for the bricks
-				int bricks_x = 15;
+				int bricks_x = 14;
 				int bricks_y = 6;
+
+				int brick_count = 0;
 
 				// Populate the bricks depending on the number of rows and columns
 				for (int y = 0; y < bricks_y; y++) {
 								for (int x = 0; x < bricks_x; x++) {
 
 												// Move the next brick position based on the width and height of the brick + 5
-												float y_position = (float)50 + (y * 35);
-												float x_position = (float)40 + (x * 75);
+												float y_position = (float)50 + (y * 40);
+												float x_position = (float)40 + (x * 80);
 												
 												std::string id = "brick.y" + std::to_string(y_position) + ".x." + std::to_string(x_position);
-
-												//std::cout << brickCount << std::endl;
 												
 												Brick* brick = new Brick(id);
-												_game_objects[brick->id()] = brick;
 												
+												_game_objects[brick->id()] = brick;
+
+												// Adding bricks count for every loop
+												brick_count++;
+												brick->set_bricks(brick_count);
+												
+												// Set the position fo each bricks
 												brick-> set_translation(Vector_2D(x_position, y_position));
-												//brickCount(1);
 								}
 				}
 
@@ -44,15 +49,4 @@ Game_Scene::~Game_Scene() {
 }
 
 void Game_Scene::update(SDL_Window*) {
-}
-
-void Game_Scene::brickCount(int brick) {
-				
-				_brick -= brick;
-				std::cout << _brick << std::endl;
-
-				if (_brick == 0) {
-								std::cout << "You lose" << std::endl;
-				}
-				
 }

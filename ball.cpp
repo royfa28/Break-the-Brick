@@ -11,7 +11,7 @@ Ball::Ball(std::string id) : Game_Object(id, "Texture.paddle.move") {
 				_height = 15;
 				
 				xSpeed = 0.3f;
-				ySpeed = -0.3f;
+				ySpeed = -0.1f;
 
 				// Randomly generate a number for the X position. 
 				int seed = (int)time(NULL);
@@ -68,6 +68,9 @@ void Ball::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Sce
 																ballCollision(intersection_depth);
 												}
 								}
+								else if (game_object->id() == "paddle.move") {
+
+								}
 
 				}
 }
@@ -78,19 +81,22 @@ void Ball::simulate_AI(Uint32, Assets*, Input*) {
 				if (Game_Object::_translation.x() > (1200 - _width) && _velocity.x() > 0) {
 
 								_velocity = Vector_2D(-_velocity.x(), _velocity.y());
-
+								std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
 				}
 				else if (Game_Object::_translation.y() < 0 && _velocity.y() < 0) {
 
 								_velocity = Vector_2D(_velocity.x(), -_velocity.y());
+								std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
 				}
 				else if (Game_Object::_translation.y() > (900 - _height) && _velocity.y() > 0) {
 
 								_velocity = Vector_2D(_velocity.x(), -_velocity.y());
+								std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
 				}
 				else if (Game_Object::_translation.x() < 0 && _velocity.x() < 0) {
 
 								_velocity = Vector_2D(-_velocity.x(), _velocity.y());
+								std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
 
 				}
 }

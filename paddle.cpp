@@ -10,6 +10,9 @@ Paddle::Paddle(std::string id) : Game_Object(id, "Texture.paddle.move") {
 				_height = 15;
 				_speed = 0.3f;
 
+				_boxCollider.setSize(_width, _height);
+				_boxCollider.set_translation(Vector_2D((float)_width / 2.0f, (float)_height / 2.0f));
+
 				// Spawn the paddle on the bottom middle part of the game
 				_translation = Vector_2D(550, 870);
 }
@@ -63,10 +66,6 @@ void Paddle::simulate_AI(Uint32, Assets*, Input* input)
 				_velocity.scale(_speed);
 }
 
-void Paddle::set_speed(float speed) {
-				_speed = speed;
-}
-
-float Paddle::speed() {
-				return _speed;
+void Paddle::set_hp(int hp) {
+				_hp = hp;
 }

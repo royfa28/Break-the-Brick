@@ -9,7 +9,6 @@ public:
 				~Game_Scene();
 
 				virtual void update(SDL_Window* window) override;
-				void brickCount(int brick);
 
 				int _brick;
 };
