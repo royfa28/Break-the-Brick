@@ -12,9 +12,11 @@ public:
     virtual void simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scene);
     virtual void simulate_AI(Uint32 milliseconds_to_simulate, Assets* assets, Input* input) override;
     virtual void render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer) override;
+    virtual void set_hp(int hp) override;
 
     void ballCollision(int response);
-    //float x, y, width, height;
+
+    void resetPosition();
 
     float xSpeed, ySpeed;
 

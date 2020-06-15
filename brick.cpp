@@ -29,7 +29,7 @@ void Brick::checkBricks(Scene* scene) {
 
 								if (game_object->id() != "paddle.move" && game_object->id() != "ball.move") {
 												brick_Count++;
-												std::cout << "Bricks before: " << brick_Count << std::endl;
+												//std::cout << "Bricks before: " << brick_Count << std::endl;
 												set_hp(brick_Count);
 								}
 				}

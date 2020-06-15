@@ -15,6 +15,8 @@ Ball::Ball(std::string id) : Game_Object(id, "Texture.paddle.move") {
 				xSpeed = 0.3f;
 				ySpeed = -0.3f;
 
+				_hp = 3;
+
 				// Randomly generate a number for the X position. 
 				int seed = (int)time(NULL);
 				std::minstd_rand0 generator(seed);
@@ -67,11 +69,10 @@ void Ball::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Sce
 												if (intersection_depth != 0.1f)
 												{
 																Brick bricks = bricks;
-																bricks.checkBricks(scene);
-																//std::cout << "Bricks before: " << bricks.hp() << std::endl;
+																bricks.checkBricks(scene);																																		// Function to check for all the bricks object
 
-																scene->remove_game_objects(game_object->id());
-																bricks.set_hp(bricks.hp() - 1);
+																scene->remove_game_objects(game_object->id());														// Removing the brick that got hit base on the ID
+																bricks.set_hp(bricks.hp() - 1);																													// Go to function to set the hp / total amount of bricks
 																std::cout << "Bricks after: " << bricks.hp() << std::endl;
 
 																if (bricks.hp() <= 80) {
@@ -102,8 +103,9 @@ void Ball::simulate_AI(Uint32, Assets*, Input*) {
 								_velocity = Vector_2D(_velocity.x(), -_velocity.y());
 								std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
 				}
-				else if (Game_Object::_translation.y() > (900 - _height) && _velocity.y() > 0) {
-
+				else if (Game_Object::_translation.y() > (850 - _height) && _velocity.y() > 0) {
+								//resetPosition();
+								std::cout << "Lose life" << std::endl;
 								_velocity = Vector_2D(_velocity.x(), -_velocity.y());
 								std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
 				}
@@ -121,4 +123,26 @@ void Ball::ballCollision(int response) {
 								_velocity = Vector_2D(_velocity.x(), -_velocity.y());
 				if (response == 2 || response == 0)
 								_velocity = Vector_2D(-_velocity.x(), _velocity.y());
+
+}
+
+void Ball::resetPosition() {
+				xSpeed = 0.3f;
+				ySpeed = -0.3f;
+
+				int seed = (int)time(NULL);
+				std::minstd_rand0 generator(seed);
+				float random = (float)generator() / generator.min();
+
+				std::minstd_rand0 randomXGenerator(random);
+				float randomXPos = ((float)randomXGenerator() / randomXGenerator.max()) * 1100;
+
+				std::cout << randomXPos << std::endl;
+
+				Game_Object::_translation = Vector_2D(randomXPos, 800);
+				Game_Object::_velocity = Vector_2D(xSpeed, ySpeed);
+}
+
+void Ball::set_hp(int hp) {
+				_hp = hp;
 }

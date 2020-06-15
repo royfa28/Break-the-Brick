@@ -48,7 +48,6 @@ float Circle_2D::intersection_depth(Box_2D other, Circle_2D circleCollider) // D
 								if (ballYPosition <= brickYPosition + brickHeight)
 								{
 												std::cout << "Hit from btm" << std::endl;
-												//ball.ballCollision(3);
 												return 3.0;
 								}
 								//Hit was from below the brick
@@ -56,14 +55,12 @@ float Circle_2D::intersection_depth(Box_2D other, Circle_2D circleCollider) // D
 								if (ballYPosition < brickYPosition)
 								{
 												std::cout << "Hit from top" << std::endl;
-												//ball.ballCollision(1);
 												return 1.0;
 								}
 								//Hit was from above the brick
 
 								if (ballXPosition < brickXPosition)
 								{
-												//ball.ballCollision(0);
 												std::cout << "Hit from left" << std::endl;
 												return 0.0;
 								}
@@ -71,7 +68,6 @@ float Circle_2D::intersection_depth(Box_2D other, Circle_2D circleCollider) // D
 
 								if (ballXPosition > brickXPosition + brickWidth)
 								{
-												//	ball.ballCollision(2);
 												std::cout << "Hit from right" << std::endl;
 												return 2.0;
 								}
