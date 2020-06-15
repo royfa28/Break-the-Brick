@@ -24,7 +24,7 @@ Game_Scene::Game_Scene() : Scene("Game") {
 								for (int x = 0; x < bricks_x; x++) {
 
 												// Move the next brick position based on the width and height of the brick + 5
-												float y_position = (float)50 + (y * 40);
+												float y_position = (float)80 + (y * 40);
 												float x_position = (float)40 + (x * 80);
 												
 												std::string id = "brick.y" + std::to_string(y_position) + ".x." + std::to_string(x_position);

@@ -16,11 +16,15 @@ public:
 
     void ballCollision(int response);
     void ball_PaddleCollision(int response);
+    void updateHealth(SDL_Renderer);
 
     void resetPosition();
 
     float xSpeed, ySpeed;
 
 private:
+    SDL_Color text_color;
+
     float _speed;
+    std::string _health;
 };

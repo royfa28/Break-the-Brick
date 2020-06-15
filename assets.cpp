@@ -21,6 +21,12 @@ Assets::Assets(SDL_Renderer* renderer) {
 								_assets[brick_texture->id()] = brick_texture;
 				}
 
+				// Blank texture
+				{
+								Asset* blank = new Texture("Texture.blank", "Assets/blank.png", renderer);
+								_assets[blank->id()] = blank;
+				}
+
 				// Cache the ball texture
 				{
 								const int frame_count = 10;

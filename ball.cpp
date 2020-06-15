@@ -44,6 +44,10 @@ void Ball::render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer*
 				Animated_Texture* texture = (Animated_Texture*)assets->get_asset(_texture_id);
 				texture->update_frame(milliseconds_to_simulate);
 
+
+				Text lives(renderer, _health.c_str(), text_color, "Text.Lives");
+				lives.render(renderer, Vector_2D(15.0f, 15.0f));
+
 				Game_Object::render(milliseconds_to_simulate, assets, renderer);
 }
 
@@ -53,6 +57,13 @@ void Ball::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Sce
 				velocity.scale((float)milliseconds_to_simulate);
 
 				_translation += velocity;
+
+				_health = "Lives: " + std::to_string(this->hp());
+
+				text_color.r = 255;
+				text_color.g = 0;
+				text_color.b = 0;
+				text_color.a = 255;
 
 				//Game_Object* bricks = scene->get_game_object("brick");
 				for (Game_Object* game_object : scene->get_game_objects()) {				// For loop to get all the IDs in the scene
@@ -101,7 +112,7 @@ void Ball::simulate_AI(Uint32, Assets*, Input*) {
 				if (Game_Object::_translation.x() > (1200 - _width) && _velocity.x() > 0) {
 								_velocity = Vector_2D(-_velocity.x(), _velocity.y());
 				}
-				else if (Game_Object::_translation.y() < 0 && _velocity.y() < 0) {
+				else if (Game_Object::_translation.y() < 50 && _velocity.y() < 0) {
 								_velocity = Vector_2D(_velocity.x(), -_velocity.y());
 				}
 				else if (Game_Object::_translation.y() > (900 - _height) && _velocity.y() > 0) {
