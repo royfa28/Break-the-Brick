@@ -75,7 +75,6 @@ float Circle_2D::intersection_depth(Box_2D other, Circle_2D circleCollider) // D
 }
 
 float Circle_2D::ballPaddleCollision(Box_2D other, Circle_2D circleCollider) {
-				Ball ball = ball;
 
 				float ballXPosition = circleCollider.translation().x();
 				float ballYPosition = circleCollider.translation().y();

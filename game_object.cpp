@@ -21,6 +21,10 @@ std::string Game_Object::id() {
 				return _id;
 }
 
+std::string Game_Object::texture_id() {
+				return _texture_id;
+}
+
 void Game_Object::simulate_physics(Uint32 milliseconds_to_simulate, Assets*, Scene* scene) {
 
 				Vector_2D velocity = _velocity;
@@ -88,7 +92,6 @@ void Game_Object::render(Uint32, Assets* assets, SDL_Renderer* renderer) {
 }
 
 void Game_Object::checkBricks(Scene* scene) {
-
 }
 
 Circle_2D Game_Object::circleCollider() {

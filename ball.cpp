@@ -8,10 +8,10 @@
 #include <random>
 #include <time.h>
 
-Ball::Ball(std::string id) : Game_Object(id, "Texture.paddle.move") {
+Ball::Ball(std::string id) : Game_Object(id, "Texture.ball.move") {
 
-				_width = 15;
-				_height = 15;
+				_width = 20;
+				_height = 20;
 				
 				xSpeed = 0.3f;
 				ySpeed = -0.3f;
@@ -79,15 +79,16 @@ void Ball::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Sce
 								float intersection_depth = circleCollider.intersection_depth(boxCollider, circleCollider);
 								float ballPaddleCollision = circleCollider.ballPaddleCollision(boxCollider, circleCollider);
 
-								if (game_object->id() != "paddle.move") {
+								if (game_object->id() != "paddle") {
 												if (intersection_depth != 0.1f)
 												{
 																//MATT override this function to get access to this function easier
 																ballCollision(intersection_depth);
 																Brick bricks = bricks;
 																bricks.checkBricks(scene);																																		// Function to check for all the bricks object
-
+																
 																scene->remove_game_objects(game_object->id());														// Removing the brick that got hit base on the ID
+																
 																bricks.set_hp(bricks.hp() - 1);																													// Go to function to set the hp / total amount of bricks
 																//std::cout << "Bricks after: " << bricks.hp() << std::endl;
 
@@ -96,8 +97,10 @@ void Ball::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Sce
 																}
 
 												}
+
 								}
-								else if (game_object->id() == "paddle.move") {
+								else if (game_object->id() == "paddle") {
+												std::cout << "Where it break" << std::endl;
 												if (ballPaddleCollision != 0.1f) {
 																ball_PaddleCollision(ballPaddleCollision);
 												}

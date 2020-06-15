@@ -20,6 +20,7 @@ public:
 				~Game_Object();
 
 				std::string id();
+				std::string texture_id();
 
 				virtual void simulate_AI(Uint32 milliseconds_to_simulate, Assets* assets, Input* input) = 0;
 				virtual void simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scene);

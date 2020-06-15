@@ -4,17 +4,17 @@
 
 #include <iostream>
 
-Paddle::Paddle(std::string id) : Game_Object(id, "Texture.paddle.move") {
+Paddle::Paddle(std::string id) : Game_Object(id, "Texture.paddle") {
 
 				_width = 120;
-				_height = 15;
+				_height = 29;
 				_speed = 0.3f;
 
 				_boxCollider.setSize(_width, _height);
 				_boxCollider.set_translation(Vector_2D((float)_width / 2.0f, (float)_height / 2.0f));
 
 				// Spawn the paddle on the bottom middle part of the game
-				_translation = Vector_2D(550, 870);
+				_translation = Vector_2D(550, 850);
 }
 
 Paddle::~Paddle() {
@@ -40,11 +40,9 @@ void Paddle::simulate_AI(Uint32, Assets*, Input* input)
 								// Making sure that the paddle doesnt move beyond the game wall
 								if (Game_Object::_translation.x() > (1200 - _width)) {
 												_velocity = Vector_2D(0, 0);
-												std::cout << "Wall right" << std::endl;
 								}
 								else {
 												_velocity += Vector_2D(1.0f, 0);
-												std::cout << "Move right" << std::endl;
 								}
 								
 				}
@@ -53,11 +51,9 @@ void Paddle::simulate_AI(Uint32, Assets*, Input* input)
 				{
 								if (Game_Object::_translation.x() < 0) {
 												_velocity = Vector_2D(0, 0);
-												std::cout << "Wall left" << std::endl;
 								}
 								else {
 												_velocity += Vector_2D(-1.0f, 0);
-												std::cout << "Move left" << std::endl;
 								}
 
 				}

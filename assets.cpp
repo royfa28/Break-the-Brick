@@ -10,15 +10,20 @@ Assets::Assets(SDL_Renderer* renderer) {
 				{
 								const int frame_count = 10;
 								const Uint32 frame_duration_milliseconds = 100;
-								Asset* paddle_texture = new Animated_Texture("Texture.paddle.move", "Assets/paddle_normal.png", 
+								Asset* paddle_texture = new Animated_Texture("Texture.paddle", "Assets/paddle.png", 
 												renderer, frame_count, frame_duration_milliseconds);
 								_assets[paddle_texture->id()] = paddle_texture;
 				}
 
-
-				// Create brick  texture.
+				// Create purple brick texture
 				{
-								Asset* brick_texture = new Texture("Texture.brick", "Assets/brick.png", renderer);
+								Asset* brick_texture = new Texture("Texture.purpleBrick", "Assets/purpleBrick.png", renderer);
+								_assets[brick_texture->id()] = brick_texture;
+				}
+
+				// Create red brick texture
+				{
+								Asset* brick_texture = new Texture("Texture.redBrick", "Assets/redBrick.png", renderer);
 								_assets[brick_texture->id()] = brick_texture;
 				}
 
@@ -32,7 +37,7 @@ Assets::Assets(SDL_Renderer* renderer) {
 				{
 								const int frame_count = 10;
 								const Uint32 frame_duration_milliseconds = 100;
-								Asset* ball_texture = new Animated_Texture("Texture.ball.move", "Assets/paddle_normal.png",
+								Asset* ball_texture = new Animated_Texture("Texture.ball.move", "Assets/ball.png",
 												renderer, frame_count, frame_duration_milliseconds);
 								_assets[ball_texture->id()] = ball_texture;
 				}

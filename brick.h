@@ -7,7 +7,7 @@ class Brick : public Game_Object {
 
 public:
 
-    Brick(std::string id);
+    Brick(std::string id, std::string texture_id);
     ~Brick();
     
     virtual void set_hp(int hp) override;

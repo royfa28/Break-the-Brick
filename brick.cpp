@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-Brick::Brick(std::string id) : Game_Object(id, "Texture.brick") {
+Brick::Brick(std::string id, std::string texture_id) : Game_Object(id, texture_id) {
 
 				// Brick size
 				_width = 70;
@@ -27,7 +27,7 @@ void Brick::checkBricks(Scene* scene) {
 												continue;
 								}
 
-								if (game_object->id() != "paddle.move" && game_object->id() != "ball.move") {
+								if (game_object->id() != "paddle" && game_object->id() != "ball.move") {
 												brick_Count++;
 												//std::cout << "Bricks before: " << brick_Count << std::endl;
 												set_hp(brick_Count);
