@@ -3,6 +3,7 @@
 #include <thread>
 
 #include "engine.h"
+#include "assets.h"
 #include "game_scene.h"
 #include "input.h"
 

@@ -5,6 +5,8 @@
 
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
+#include <SDL_ttf.h>
+#include <SDL_mixer.h>
 
 
 #include "asset.h"
@@ -44,6 +46,15 @@ Engine::Engine() {
 				if (_renderer == nullptr)
 				{
 								std::cout << "Failed to create Renderer" << std::endl;
+								std::cout << "SDL Error: " << SDL_GetError() << std::endl;
+								exit(1);
+				}
+
+				const int ttf_init_result = TTF_Init();
+				const int ttf_init_success = 0;
+				if (ttf_init_result != ttf_init_success)
+				{
+								std::cout << "Failed to initialize SDL TTF" << std::endl;
 								std::cout << "SDL Error: " << SDL_GetError() << std::endl;
 								exit(1);
 				}

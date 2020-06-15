@@ -2,6 +2,8 @@
 #include "paddle.h"
 #include "brick.h"
 #include "ball.h"
+#include "text.h"
+
 #include <iostream>
 
 Game_Scene::Game_Scene() : Scene("Game") {
