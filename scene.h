@@ -5,6 +5,7 @@
 #include <vector>
 
 #include <SDL.h>
+#include "assets.h"
 
 class Game_Object;
 
@@ -18,6 +19,8 @@ public:
 
 				Game_Object* get_game_object(std::string id);
 				std::vector<Game_Object*> get_game_objects();
+
+				void add_game_object(Game_Object* game_object);
 
 				void remove_game_objects(std::string id);
 

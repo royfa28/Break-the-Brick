@@ -10,12 +10,14 @@ public:
 
 				enum class Button
 				{
-								QUIT,
+					QUIT,
 
-								UP,
-								DOWN,
-								LEFT,
-								RIGHT
+					UP,
+					DOWN,
+					LEFT,
+					RIGHT,
+
+					SPACE
 				};
 
 				enum class Button_State

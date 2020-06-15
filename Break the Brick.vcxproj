@@ -163,6 +163,8 @@
     <ClCompile Include="hud.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="menu_buttons.cpp" />
+    <ClCompile Include="menu_scene.cpp" />
     <ClCompile Include="paddle.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="sound.cpp" />
@@ -178,11 +180,14 @@
     <ClInclude Include="box_2D.h" />
     <ClInclude Include="brick.h" />
     <ClInclude Include="circle_2D.h" />
+    <ClInclude Include="configuration.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="game_object.h" />
     <ClInclude Include="game_scene.h" />
     <ClInclude Include="hud.h" />
     <ClInclude Include="input.h" />
+    <ClInclude Include="menu_buttons.h" />
+    <ClInclude Include="menu_scene.h" />
     <ClInclude Include="paddle.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="scene.h" />
