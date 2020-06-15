@@ -16,6 +16,7 @@ Ball::Ball(std::string id) : Game_Object(id, "Texture.paddle.move") {
 				ySpeed = -0.3f;
 
 				_hp = 3;
+				set_hp(_hp);
 
 				// Randomly generate a number for the X position. 
 				int seed = (int)time(NULL);
@@ -103,9 +104,16 @@ void Ball::simulate_AI(Uint32, Assets*, Input*) {
 								_velocity = Vector_2D(_velocity.x(), -_velocity.y());
 				}
 				else if (Game_Object::_translation.y() > (900 - _height) && _velocity.y() > 0) {
-								//resetPosition();
-								//std::cout << "Lose life" << std::endl;
-								_velocity = Vector_2D(_velocity.x(), -_velocity.y());
+								this->set_hp(this->hp() - 1);
+								if (this->hp() == 0) {
+												std::cout << "Game over" << std::endl;
+								}
+								else {
+												std::cout << "Current life: " << this->hp() << std::endl;
+												resetPosition();
+								}
+								
+								
 				}
 				else if (Game_Object::_translation.x() < 0 && _velocity.x() < 0) {
 								_velocity = Vector_2D(-_velocity.x(), _velocity.y());
