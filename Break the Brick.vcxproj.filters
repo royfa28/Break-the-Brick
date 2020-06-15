@@ -54,48 +54,63 @@
     <ClCompile Include="brick.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ball.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="box_2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="circle_2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="engine.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="paddle.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="texture.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="assets.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="game_object.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="asset.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="input.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vector_2D.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="scene.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="game_scene.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="animated_texture.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="brick.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Desktop\SDL2_mixer-2.0.4\include\SDL_mixer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ball.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="box_2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle_2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="asset.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="assets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="brick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vector_2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="paddle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game_scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game_object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -103,15 +118,5 @@
     <ResourceCompile Include="Break the Brick.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="..\..\..\Desktop\SDL2_mixer-2.0.4\lib\x86\SDL2_mixer.lib">
-      <Filter>Source Files</Filter>
-    </Library>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\Desktop\SDL2_mixer-2.0.4\lib\x86\SDL2_mixer.dll">
-      <Filter>Source Files</Filter>
-    </None>
   </ItemGroup>
 </Project>

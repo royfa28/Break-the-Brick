@@ -18,7 +18,9 @@ public:
 				Vector_2D translation();
 				void set_translation(Vector_2D translation);
 
-				float intersection_depth(Box_2D other, Circle_2D circleCollider); // Is this correct?
+				float intersection_depth(Box_2D other, Circle_2D circleCollider);
+				float ballPaddleCollision(Box_2D other, Circle_2D circleCollider);
+
 private:
 				float _radius;
 				Vector_2D _translation;

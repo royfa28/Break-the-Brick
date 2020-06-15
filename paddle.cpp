@@ -6,7 +6,7 @@
 
 Paddle::Paddle(std::string id) : Game_Object(id, "Texture.paddle.move") {
 
-				_width = 100;
+				_width = 120;
 				_height = 15;
 				_speed = 0.3f;
 

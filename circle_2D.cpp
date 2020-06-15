@@ -26,8 +26,6 @@ void Circle_2D::set_translation(Vector_2D translation)
 
 float Circle_2D::intersection_depth(Box_2D other, Circle_2D circleCollider) // Do I make the contructor  
 {
-				Ball ball = ball;
-
 				float ballXPosition = circleCollider.translation().x();
 				float ballYPosition = circleCollider.translation().y();
 				float radius = circleCollider.radius();
@@ -72,6 +70,45 @@ float Circle_2D::intersection_depth(Box_2D other, Circle_2D circleCollider) // D
 												return 2.0;
 								}
 								//Hit was on left
+				}
+				return 0.1f;
+}
+
+float Circle_2D::ballPaddleCollision(Box_2D other, Circle_2D circleCollider) {
+				Ball ball = ball;
+
+				float ballXPosition = circleCollider.translation().x();
+				float ballYPosition = circleCollider.translation().y();
+				float radius = circleCollider.radius();
+
+				float brickXPosition = other.translation().x();
+				float brickYPosition = other.translation().y();
+				float brickWidth = other.width();
+				float brickHeight = other.height();
+
+				if ((ballYPosition + radius < brickYPosition)
+								|| (ballYPosition > brickYPosition + brickHeight)
+								|| (ballXPosition > brickXPosition + brickWidth)
+								|| (ballXPosition + radius < brickXPosition))
+				{
+								// No collision
+				}
+				else {
+								if (ballYPosition <= brickYPosition)
+								{
+												if (ballXPosition <= brickXPosition + brickWidth && ballXPosition >= brickXPosition + brickWidth * 0.75) {
+																return 1.0f;
+												}
+												if (ballXPosition <= brickXPosition + brickWidth * 0.75 && ballXPosition >= brickXPosition + brickWidth * 0.5) {
+																return 2.0f;
+												}
+												if (ballXPosition <= brickXPosition + brickWidth * 0.5 && ballXPosition >= brickXPosition + brickWidth * 0.25) {
+																return 3.0f;
+												}
+												if (ballXPosition <= brickXPosition + brickWidth * 0.25 && ballXPosition >= brickXPosition) {
+																return 4.0f;
+												}
+								}
 				}
 				return 0.1f;
 }

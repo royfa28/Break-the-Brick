@@ -15,6 +15,7 @@ public:
     virtual void set_hp(int hp) override;
 
     void ballCollision(int response);
+    void ball_PaddleCollision(int response);
 
     void resetPosition();
 

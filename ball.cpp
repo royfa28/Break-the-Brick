@@ -64,6 +64,7 @@ void Ball::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Sce
 								Box_2D boxCollider = Box_2D(game_object->_boxCollider.width(), game_object->_boxCollider.height(), game_object->translation());
 
 								float intersection_depth = circleCollider.intersection_depth(boxCollider, circleCollider);
+								float ballPaddleCollision = circleCollider.ballPaddleCollision(boxCollider, circleCollider);
 
 								if (game_object->id() != "paddle.move") {
 												if (intersection_depth != 0.1f)
@@ -84,7 +85,9 @@ void Ball::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Sce
 												}
 								}
 								else if (game_object->id() == "paddle.move") {
-
+												if (ballPaddleCollision != 0.1f) {
+																ball_PaddleCollision(ballPaddleCollision);
+												}
 								}
 
 				}
@@ -94,26 +97,18 @@ void Ball::simulate_AI(Uint32, Assets*, Input*) {
 
 				// Making sure that the ball doesnt move beyond the game wall
 				if (Game_Object::_translation.x() > (1200 - _width) && _velocity.x() > 0) {
-
 								_velocity = Vector_2D(-_velocity.x(), _velocity.y());
-								//std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
 				}
 				else if (Game_Object::_translation.y() < 0 && _velocity.y() < 0) {
-
 								_velocity = Vector_2D(_velocity.x(), -_velocity.y());
-								//std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
 				}
-				else if (Game_Object::_translation.y() > (850 - _height) && _velocity.y() > 0) {
+				else if (Game_Object::_translation.y() > (900 - _height) && _velocity.y() > 0) {
 								//resetPosition();
 								//std::cout << "Lose life" << std::endl;
 								_velocity = Vector_2D(_velocity.x(), -_velocity.y());
-								//std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
 				}
 				else if (Game_Object::_translation.x() < 0 && _velocity.x() < 0) {
-
 								_velocity = Vector_2D(-_velocity.x(), _velocity.y());
-								//std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
-
 				}
 }
 
@@ -124,6 +119,29 @@ void Ball::ballCollision(int response) {
 				if (response == 2 || response == 0)
 								_velocity = Vector_2D(-_velocity.x(), _velocity.y());
 
+}
+
+void Ball::ball_PaddleCollision(int response) {
+				if (response == 1 || response == 4) {
+								if (_velocity.x() > 0) {
+												xSpeed = 0.45f;
+												_velocity = Vector_2D(xSpeed, -_velocity.y());
+								}
+								if (_velocity.x() < 0) {
+												xSpeed = -0.45f;
+												_velocity = Vector_2D(xSpeed, -_velocity.y());
+								}
+				}
+				else {
+								if (_velocity.x() > 0) {
+												xSpeed = 0.3f;
+												_velocity = Vector_2D(xSpeed, -_velocity.y());
+								}
+								if (_velocity.x() < 0) {
+												xSpeed = -0.3f;
+												_velocity = Vector_2D(xSpeed, -_velocity.y());
+								}
+				}
 }
 
 void Ball::resetPosition() {
