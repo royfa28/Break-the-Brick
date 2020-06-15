@@ -1,5 +1,6 @@
 #include "assets.h"
 #include "animated_texture.h"
+#include "sound.h"
 
 #include <iostream>
 
@@ -46,6 +47,14 @@ Assets::Assets(SDL_Renderer* renderer) {
 				{
 								Texture* texture = new Texture("Texture.BoxCollider", "Assets/box_collider.png", renderer);
 								_assets[texture->id()] = texture;
+				}
+
+				// Create music sound
+				{
+								Sound* sound = new Sound("Sound.Music", "Assets/music.wav");
+								_assets[sound->id()] = sound;
+
+								Mix_PlayChannel(0, sound->data(), -1);
 				}
 
 }

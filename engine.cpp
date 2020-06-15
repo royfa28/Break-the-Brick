@@ -67,6 +67,27 @@ Engine::Engine() {
 								std::cout << "SDL Error: " << SDL_GetError() << std::endl;
 								exit(1);
 				}
+
+				const int mixer_init_result = Mix_Init(MIX_INIT_MOD); //initialize mixer
+				const int mixer_init_failure = 0; //validation
+				if (mixer_init_result == mixer_init_failure)
+				{
+								std::cout << "Failed to initialize SDL Mixer" << std::endl;
+								std::cout << "SDL Error: " << SDL_GetError() << std::endl;
+								std::cout << "Mixer Error: " << Mix_GetError() << std::endl;
+								exit(1);
+				}
+
+				const int mixer_open_audio_result = Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
+				const int mixer_open_audio_success = 0;
+				if (mixer_open_audio_result != mixer_open_audio_success)
+				{
+								std::cout << "Failed to open audio" << std::endl;
+								std::cout << "SDL Error: " << SDL_GetError() << std::endl;
+								exit(1);
+				}
+
+				Mix_AllocateChannels(3);
 }
 
 Engine::~Engine() {
