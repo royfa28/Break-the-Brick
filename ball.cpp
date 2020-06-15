@@ -68,19 +68,19 @@ void Ball::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Sce
 								if (game_object->id() != "paddle.move") {
 												if (intersection_depth != 0.1f)
 												{
+																//MATT override this function to get access to this function easier
+																ballCollision(intersection_depth);
 																Brick bricks = bricks;
 																bricks.checkBricks(scene);																																		// Function to check for all the bricks object
 
 																scene->remove_game_objects(game_object->id());														// Removing the brick that got hit base on the ID
 																bricks.set_hp(bricks.hp() - 1);																													// Go to function to set the hp / total amount of bricks
-																std::cout << "Bricks after: " << bricks.hp() << std::endl;
+																//std::cout << "Bricks after: " << bricks.hp() << std::endl;
 
 																if (bricks.hp() <= 80) {
-																				std::cout << "You WIN!!!" << std::endl;
+																				//std::cout << "You WIN!!!" << std::endl;
 																}
-																
-																//MATT override this function to get access to this function easier
-																ballCollision(intersection_depth);
+
 												}
 								}
 								else if (game_object->id() == "paddle.move") {
@@ -96,23 +96,23 @@ void Ball::simulate_AI(Uint32, Assets*, Input*) {
 				if (Game_Object::_translation.x() > (1200 - _width) && _velocity.x() > 0) {
 
 								_velocity = Vector_2D(-_velocity.x(), _velocity.y());
-								std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
+								//std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
 				}
 				else if (Game_Object::_translation.y() < 0 && _velocity.y() < 0) {
 
 								_velocity = Vector_2D(_velocity.x(), -_velocity.y());
-								std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
+								//std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
 				}
 				else if (Game_Object::_translation.y() > (850 - _height) && _velocity.y() > 0) {
 								//resetPosition();
-								std::cout << "Lose life" << std::endl;
+								//std::cout << "Lose life" << std::endl;
 								_velocity = Vector_2D(_velocity.x(), -_velocity.y());
-								std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
+								//std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
 				}
 				else if (Game_Object::_translation.x() < 0 && _velocity.x() < 0) {
 
 								_velocity = Vector_2D(-_velocity.x(), _velocity.y());
-								std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
+								//std::cout << "X velocity: " << _velocity.x() << "Y Velocity: " << _velocity.y();
 
 				}
 }
