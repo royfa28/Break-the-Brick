@@ -2,6 +2,7 @@
 
 #include "game_object.h"
 #include "game_scene.h"
+#include "text.h"
 
 Game_Object::Game_Object(std::string id, std::string texture_id) : _translation(0, 0),
 _velocity(0, 0), _circlecollider(0.0f, Vector_2D(0.f, 0.f)), _boxCollider(0.0f, 0.0f, Vector_2D(0.f, 0.f)) {

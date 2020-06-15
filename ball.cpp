@@ -2,6 +2,7 @@
 
 #include "ball.h"
 #include "brick.h"
+#include "text.h"
 
 #include <iostream>
 #include <random>
@@ -44,6 +45,18 @@ void Ball::render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer*
 				texture->update_frame(milliseconds_to_simulate);
 
 				Game_Object::render(milliseconds_to_simulate, assets, renderer);
+
+				{
+								SDL_Color text_color;
+								text_color.r = 255;
+								text_color.g = 255;
+								text_color.b = 0;
+								text_color.a = 255;
+
+								Text lives(renderer, "Lives: " + this->hp(), text_color, "Lives.Text");
+
+								//lives.render(renderer, _translation + Vector_2D(0,0));
+				}
 }
 
 void Ball::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scene)
