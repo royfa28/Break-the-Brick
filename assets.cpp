@@ -51,7 +51,7 @@ Assets::Assets(SDL_Renderer* renderer) {
 
 				// Create music sound
 				{
-								Sound* sound = new Sound("Sound.Music", "Assets/music.wav");
+								Sound* sound = new Sound("Sound.Music", "Assets/RockTransition.wav");
 								_assets[sound->id()] = sound;
 
 								Mix_PlayChannel(0, sound->data(), -1);
