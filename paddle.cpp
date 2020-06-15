@@ -65,7 +65,3 @@ void Paddle::simulate_AI(Uint32, Assets*, Input* input)
 				_velocity.normalize();
 				_velocity.scale(_speed);
 }
-
-void Paddle::set_hp(int hp) {
-				_hp = hp;
-}

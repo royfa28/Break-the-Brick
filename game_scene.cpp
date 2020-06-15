@@ -9,14 +9,14 @@ Game_Scene::Game_Scene() : Scene("Game") {
 				Game_Object* paddle = new Paddle("paddle.move");
 				_game_objects[paddle->id()] = paddle;
 
-				_brick = 90;
-
 				// Number of rows and columns for the bricks
 				int bricks_x = 14;
 				int bricks_y = 6;
 
-				int brick_count = 0;
-
+				int brick_count = bricks_x * bricks_y;
+				Brick bricks = bricks;
+				bricks.set_hp(brick_count);
+				
 				// Populate the bricks depending on the number of rows and columns
 				for (int y = 0; y < bricks_y; y++) {
 								for (int x = 0; x < bricks_x; x++) {
@@ -30,10 +30,6 @@ Game_Scene::Game_Scene() : Scene("Game") {
 												Brick* brick = new Brick(id);
 												
 												_game_objects[brick->id()] = brick;
-
-												// Adding bricks count for every loop
-												brick_count++;
-												brick->set_bricks(brick_count);
 												
 												// Set the position fo each bricks
 												brick-> set_translation(Vector_2D(x_position, y_position));

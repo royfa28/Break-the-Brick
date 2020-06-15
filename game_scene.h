@@ -9,6 +9,4 @@ public:
 				~Game_Scene();
 
 				virtual void update(SDL_Window* window) override;
-
-				int _brick;
 };

@@ -81,6 +81,10 @@ void Game_Object::render(Uint32, Assets* assets, SDL_Renderer* renderer) {
 				}
 }
 
+void Game_Object::checkBricks(Scene* scene) {
+
+}
+
 Circle_2D Game_Object::circleCollider() {
 				return _circlecollider;
 }
@@ -98,11 +102,10 @@ void Game_Object::set_translation(Vector_2D translation) {
 				_translation = translation;
 }
 
-//int Game_Object::hp()
-//{
-//				return _hp;
-//}
-//
-//int Game_Object::bricks() {
-//				return _bricks;
-//}
+void Game_Object::set_hp(int hp) {
+				_hp = hp;
+}
+
+int Game_Object::hp() {
+				return _hp;
+}

@@ -10,10 +10,8 @@ public:
     Brick(std::string id);
     ~Brick();
     
-    int bricks();
-    void set_bricks(int brick);
-
+    virtual void set_hp(int hp) override;
     virtual void simulate_AI(Uint32 milliseconds_to_simulate, Assets* assets, Input* input) override;
+    virtual void checkBricks(Scene* scene) override;
 
-    int _bricks;
 };

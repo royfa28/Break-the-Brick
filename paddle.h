@@ -14,8 +14,6 @@ public:
 
     float x, y, width, height;
 
-    void set_hp(int hp);
-
 private:
     int originalWidth;
     float _speed;

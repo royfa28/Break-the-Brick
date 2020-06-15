@@ -25,6 +25,8 @@ public:
 				virtual void simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scene);
 				virtual void render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer);
 
+				virtual void checkBricks(Scene* scene);
+
 				Vector_2D translation();
 				Box_2D boxCollider();
 				Circle_2D circleCollider();
@@ -32,9 +34,7 @@ public:
 				void set_translation(Vector_2D translation);
 
 				int hp();
-				int bricks();
-				//virtual void set_hp(int hp);
-				//virtual void set_bricks(int bricks);
+				virtual void set_hp(int hp);
 
 				Box_2D _boxCollider;
 
@@ -51,7 +51,6 @@ protected:
 				int _y;
 
 				int _hp;
-				int _bricks;
 				int _width;
 				int _height;
 

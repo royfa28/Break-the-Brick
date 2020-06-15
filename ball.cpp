@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ball.h"
+#include "brick.h"
+
 #include <iostream>
 #include <random>
 #include <time.h>
@@ -11,7 +13,7 @@ Ball::Ball(std::string id) : Game_Object(id, "Texture.paddle.move") {
 				_height = 15;
 				
 				xSpeed = 0.3f;
-				ySpeed = -0.1f;
+				ySpeed = -0.3f;
 
 				// Randomly generate a number for the X position. 
 				int seed = (int)time(NULL);
@@ -48,6 +50,7 @@ void Ball::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Sce
 
 				_translation += velocity;
 
+				//Game_Object* bricks = scene->get_game_object("brick");
 				for (Game_Object* game_object : scene->get_game_objects()) {				// For loop to get all the IDs in the scene
 
 								if (game_object->id() == _id)
@@ -63,7 +66,18 @@ void Ball::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Sce
 								if (game_object->id() != "paddle.move") {
 												if (intersection_depth != 0.1f)
 												{
+																Brick bricks = bricks;
+																bricks.checkBricks(scene);
+																//std::cout << "Bricks before: " << bricks.hp() << std::endl;
+
 																scene->remove_game_objects(game_object->id());
+																bricks.set_hp(bricks.hp() - 1);
+																std::cout << "Bricks after: " << bricks.hp() << std::endl;
+
+																if (bricks.hp() <= 80) {
+																				std::cout << "You WIN!!!" << std::endl;
+																}
+																
 																//MATT override this function to get access to this function easier
 																ballCollision(intersection_depth);
 												}
