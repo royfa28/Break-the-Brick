@@ -10,6 +10,7 @@
 #include "input.h"
 #include <SDL_mixer.h>
 #include <SDL_assert.h>
+#include "sound.h"
 
 
 int main(void)
@@ -19,7 +20,7 @@ int main(void)
 				Scene* menu_scene = new Menu_Scene();
 				//Scene* game_scene = new Game_Scene();
 				Input* input = new Input();
-				Editor* editor = new Editor(L"Game"); //object
+				//Editor* editor = new Editor(L"Game"); //object
 
 				
 				

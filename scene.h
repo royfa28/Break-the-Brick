@@ -3,7 +3,7 @@
 #include <map>
 #include <string>
 #include <vector>
-
+#include "vector_2D.h"
 #include <SDL.h>
 #include "assets.h"
 
@@ -25,8 +25,10 @@ public:
 				void remove_game_objects(std::string id);
 
 				std::string id();
+				SDL_Color background_color();
 
 protected:
 				std::map<std::string, Game_Object*> _game_objects;
 				std::string                         _id;
+				SDL_Color _background_color;
 };

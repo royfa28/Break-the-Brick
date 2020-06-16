@@ -29,6 +29,12 @@ void Game_Object::simulate_physics(Uint32 milliseconds_to_simulate, Assets*, Sce
 				_translation += velocity;
 }
 
+std::string Game_Object::texture_id()
+{
+	return _texture_id;
+}
+
+
 void Game_Object::render(Uint32, Assets* assets, SDL_Renderer* renderer) {
 
 				SDL_Rect destination;

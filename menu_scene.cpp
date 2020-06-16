@@ -18,3 +18,5 @@ Menu_Scene::~Menu_Scene()
 void Menu_Scene::update(SDL_Window*)
 {
 }
+
+

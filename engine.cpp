@@ -127,12 +127,14 @@ void Engine::render(Uint32 miliseconds_to_simulate, Assets* assets, Scene* scene
 								exit(1);
 				}
 
-				const Uint8 red = 0;
+				/*const Uint8 red = 0;
 				const Uint8 green = 0;
 				const Uint8 blue = 0;
-				const Uint8 alpha = 255;
+				const Uint8 alpha = 255;*/
+				const SDL_Color background = scene->background_color();
 				const int render_color_success = 0;
-				const int render_color_result = SDL_SetRenderDrawColor(_renderer, red, green, blue, alpha);
+				//const int render_color_result = SDL_SetRenderDrawColor(_renderer, red, green, blue, alpha);
+				const int render_color_result = SDL_SetRenderDrawColor(_renderer, background.r, background.g, background.b, 255);
 				if (render_color_result != render_color_success)
 				{
 								std::cout << "Failed to set render color" << std::endl;

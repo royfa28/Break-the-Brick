@@ -19,8 +19,11 @@ public:
 				Game_Object(std::string id, std::string texture_id);
 				~Game_Object();
 
-				std::string id();
+				std::string texture_id();
 
+
+
+				std::string id();
 				virtual void simulate_AI(Uint32 milliseconds_to_simulate, Assets* assets, Input* input) = 0;
 				virtual void simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scene);
 				virtual void render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer);

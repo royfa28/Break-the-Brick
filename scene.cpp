@@ -48,6 +48,12 @@ void Scene::remove_game_objects(std::string id) {
 				_game_objects.erase(id);
 }
 
+SDL_Color Scene::background_color()
+{
+	return _background_color;
+}
+
+
 std::string Scene::id()
 {
 				return _id;
