@@ -29,10 +29,10 @@ Game_Scene::Game_Scene() : Scene("Game") {
 												float x_position = (float)40 + (x * 80);
 
 												std::string id = "brick.y" + std::to_string(y_position) + ".x." + std::to_string(x_position);
-												if (y == 0 || y == 1 || y == 2) {
+												if (y == 0 || y == 2 || y == 4) {
 																texture_id = "Texture.purpleBrick";
 												}
-												else if (y == 3 || y == 4 || y == 5) {
+												else if (y == 1 || y == 3 || y == 5) {
 																texture_id = "Texture.redBrick";
 												}
 

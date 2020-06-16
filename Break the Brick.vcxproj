@@ -159,8 +159,8 @@
     <ClCompile Include="circle_2D.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="game_object.cpp" />
+    <ClCompile Include="game_over_scene.cpp" />
     <ClCompile Include="game_scene.cpp" />
-    <ClCompile Include="hud.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="paddle.cpp" />
@@ -180,8 +180,8 @@
     <ClInclude Include="circle_2D.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="game_object.h" />
+    <ClInclude Include="game_over_scene.h" />
     <ClInclude Include="game_scene.h" />
-    <ClInclude Include="hud.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="paddle.h" />
     <ClInclude Include="resource.h" />

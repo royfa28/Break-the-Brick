@@ -13,10 +13,12 @@ public:
     virtual void simulate_AI(Uint32 milliseconds_to_simulate, Assets* assets, Input* input) override;
     virtual void render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer) override;
     virtual void set_hp(int hp) override;
+    virtual void set_scores(int score) override;
 
     void ballCollision(int response);
     void ball_PaddleCollision(int response);
-    void updateHealth(SDL_Renderer);
+
+    //void updateHealth(SDL_Renderer);
 
     void resetPosition();
 
@@ -27,4 +29,5 @@ private:
 
     float _speed;
     std::string _health;
+    std::string _score;
 };

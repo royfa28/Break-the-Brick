@@ -118,3 +118,11 @@ void Game_Object::set_hp(int hp) {
 int Game_Object::hp() {
 				return _hp;
 }
+
+int Game_Object::scores() {
+				return _scores;
+}
+
+void Game_Object::set_scores(int score) {
+				_scores = score;
+}

@@ -36,6 +36,10 @@ public:
 
 				int hp();
 				virtual void set_hp(int hp);
+				int scores();
+				virtual void set_scores(int score);
+
+				bool isDead();
 
 				Box_2D _boxCollider;
 
@@ -52,6 +56,7 @@ protected:
 				int _y;
 
 				int _hp;
+				int _scores;
 				int _width;
 				int _height;
 

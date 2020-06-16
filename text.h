@@ -2,6 +2,7 @@
 
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
+#include <SDL_ttf.h>
 
 #include "texture.h"
 #include "asset.h"

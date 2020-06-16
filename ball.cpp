@@ -3,10 +3,15 @@
 #include "ball.h"
 #include "brick.h"
 #include "text.h"
+#include "scene.h"
+#include "game_over_scene.h"
+#include "game_scene.h"
+#include "engine.h"
 
 #include <iostream>
 #include <random>
 #include <time.h>
+#include <stack>
 
 Ball::Ball(std::string id) : Game_Object(id, "Texture.ball.move") {
 
@@ -18,6 +23,7 @@ Ball::Ball(std::string id) : Game_Object(id, "Texture.ball.move") {
 
 				_hp = 3;
 				set_hp(_hp);
+				_scores = 0;
 
 				// Randomly generate a number for the X position. 
 				int seed = (int)time(NULL);
@@ -39,15 +45,24 @@ Ball::Ball(std::string id) : Game_Object(id, "Texture.ball.move") {
 Ball::~Ball() {
 }
 
-
 void Ball::render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer) {
 				Animated_Texture* texture = (Animated_Texture*)assets->get_asset(_texture_id);
 				texture->update_frame(milliseconds_to_simulate);
 
-
+				// Making information text on top
 				Text lives(renderer, _health.c_str(), text_color, "Text.Lives");
 				lives.render(renderer, Vector_2D(15.0f, 15.0f));
 
+				if (this->hp() <= 0) {
+								_score = "Your final score is: " + std::to_string(this->scores());
+								Text score(renderer, _score.c_str(), text_color, "HUD.EndScore");
+								score.render(renderer, Vector_2D(480, 470));
+				}
+				else {
+								_score = "Score: " + std::to_string(this->scores());
+								Text score(renderer, _score.c_str(), text_color, "HUD.score");
+								score.render(renderer, Vector_2D(780, 15));
+				}
 				Game_Object::render(milliseconds_to_simulate, assets, renderer);
 }
 
@@ -64,6 +79,12 @@ void Ball::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Sce
 				text_color.g = 0;
 				text_color.b = 0;
 				text_color.a = 255;
+
+				if (this->hp() <= 0) {
+								std::cout << "Game over!!!!" << std::endl;
+								Game_Object::_translation = Vector_2D(600, 450);
+								Game_Object::_velocity = Vector_2D(0.f, 0.f);
+				}
 
 				//Game_Object* bricks = scene->get_game_object("brick");
 				for (Game_Object* game_object : scene->get_game_objects()) {				// For loop to get all the IDs in the scene
@@ -82,30 +103,24 @@ void Ball::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Sce
 								if (game_object->id() != "paddle") {
 												if (intersection_depth != 0.1f)
 												{
-																//MATT override this function to get access to this function easier
 																ballCollision(intersection_depth);
 																Brick bricks = bricks;
 																bricks.checkBricks(scene);																																		// Function to check for all the bricks object
 																
 																scene->remove_game_objects(game_object->id());														// Removing the brick that got hit base on the ID
-																
+																this->set_scores(this->scores() + 200);
 																bricks.set_hp(bricks.hp() - 1);																													// Go to function to set the hp / total amount of bricks
-																//std::cout << "Bricks after: " << bricks.hp() << std::endl;
 
-																if (bricks.hp() <= 80) {
-																				//std::cout << "You WIN!!!" << std::endl;
+																if (bricks.hp() <= 0) {
+																				this->set_hp(0);
 																}
-
 												}
-
 								}
 								else if (game_object->id() == "paddle") {
-												std::cout << "Where it break" << std::endl;
 												if (ballPaddleCollision != 0.1f) {
 																ball_PaddleCollision(ballPaddleCollision);
 												}
 								}
-
 				}
 }
 
@@ -119,16 +134,10 @@ void Ball::simulate_AI(Uint32, Assets*, Input*) {
 								_velocity = Vector_2D(_velocity.x(), -_velocity.y());
 				}
 				else if (Game_Object::_translation.y() > (900 - _height) && _velocity.y() > 0) {
+								// Minus 1 hp for each time the ball drop below the paddle
 								this->set_hp(this->hp() - 1);
-								if (this->hp() == 0) {
-												std::cout << "Game over" << std::endl;
-								}
-								else {
-												std::cout << "Current life: " << this->hp() << std::endl;
-												resetPosition();
-								}
-								
-								
+								std::cout << "Current life: " << this->hp() << std::endl;
+								resetPosition();
 				}
 				else if (Game_Object::_translation.x() < 0 && _velocity.x() < 0) {
 								_velocity = Vector_2D(-_velocity.x(), _velocity.y());
@@ -186,4 +195,8 @@ void Ball::resetPosition() {
 
 void Ball::set_hp(int hp) {
 				_hp = hp;
+}
+
+void Ball::set_scores(int score) {
+				_scores = score;
 }

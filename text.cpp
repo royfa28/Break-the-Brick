@@ -1,6 +1,5 @@
 #include "text.h"
 
-#include <SDL_ttf.h>
 #include <iostream>
 
 Text::Text(
