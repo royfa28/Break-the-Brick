@@ -57,6 +57,30 @@ Assets::Assets(SDL_Renderer* renderer) {
 								Mix_PlayChannel(0, sound->data(), -1);
 				}
 
+				//menu text
+				{
+								Texture* texture = new Texture("Texture.Menu", "Assets/Menu.png", renderer);
+								_assets[texture->id()] = texture;
+				}
+
+				//menu start selected text
+				{
+								Texture* texture = new Texture("Texture.Menu.Start", "Assets/menu.start.selected.png", renderer);
+								_assets[texture->id()] = texture;
+				}
+
+				//menu settings selceted text
+				{
+								Texture* texture = new Texture("Texture.Menu.Settings", "Assets/menu.settings.selected.png", renderer);
+								_assets[texture->id()] = texture;
+				}
+
+				//menu exit selected text
+				{
+								Texture* texture = new Texture("Texture.Menu.Exit", "Assets/menu.exit.selected.png", renderer);
+								_assets[texture->id()] = texture;
+				}
+
 }
 
 Assets::~Assets() {

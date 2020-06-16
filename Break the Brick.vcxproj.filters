@@ -137,14 +137,14 @@
     <ClInclude Include="sound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="menu_scene.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="menu_buttons.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="configuration.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="menu_scene.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

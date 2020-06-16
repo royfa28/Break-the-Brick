@@ -63,8 +63,13 @@ void Input::get_input()
 																				_button_state[Button::RIGHT] = Button_State::PRESSED;
 																}
 																break;
+												case SDL_SCANCODE_SPACE: //if space bar input
+																if (!is_button_state(Button::SPACE, Button_State::DOWN))
+																{
+																				_button_state[Button::SPACE] = Button_State::PRESSED;
+																}
+																break;
 												}
-												break;
 
 								case SDL_KEYUP:
 												switch (event.key.keysym.scancode)
@@ -80,6 +85,9 @@ void Input::get_input()
 																break;
 												case SDL_SCANCODE_D:
 																_button_state[Button::RIGHT] = Button_State::RELEASED;
+																break;
+												case SDL_SCANCODE_SPACE:
+																_button_state[Button::SPACE] = Button_State::RELEASED;
 																break;
 												}
 												break;
